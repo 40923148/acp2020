@@ -1,0 +1,6 @@
+[submodule "cp2020"]
+	path = cp2020
+	url = https://github.com/40923148/cp2020.git
+[submodule "cmsimde"]
+	path = cmsimde
+	url = https://github.com/mdecourse/cmsimde.git
