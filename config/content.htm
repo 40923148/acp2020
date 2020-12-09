@@ -14,13 +14,987 @@
 <p><a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> 的開發, 可以在一個目錄中放入 cmsimde, 然後將 up_dir 中的內容放到與 cmsimde 目錄同位階的地方, 使用 command 進入 cmsimde 目錄, 執行 python wsgi.py, 就可以啟動, 以瀏覽器 https://localhost:9443 就可以連接, 以 admin 作為管理者密碼, 就可以登入維護內容.</p>
 <p>cmsimde 的開發採用 Leo Editor, 開啟 cmsimde 目錄中的 cmsimde.leo 就可以進行程式修改, 結束後, 若要保留網際內容, 只要將 cmsimde 外部的內容倒回 up_dir 目錄中即可後續對 cmsimde 遠端倉儲進行改版.</p>
 <p>init.py 位於  up_dir 目錄, 可以設定 site_title 與 uwsgi 等變數.</p>
-<h1>PCH 15/Introduction to Wireless Networking</h1>
-<h2>Wireless LANs</h2>
-<h3>Overview</h3>
-<p><span>The popularity of wireless local area networks (WLAN) has increased exponentially because WLAN enables people to remain connected to the network and the Internet without being tethered by wires. In this unit, we are going to cover the concepts, components, standards, design considerations, and security of WLANs. IEEE 802.11 is the overarching standard for wireless LAN technology, and was developed and is maintained by the Institute of Electrical and Electronics Engineers (IEEE) to provide wireless Ethernet connectivity to a wired IEEE 802.3 network.</span></p>
+<h1>PCH 15  Introduction to Wireless Networking(無線網路簡介)</h1>
+<h2>Wireless LANs(無線局域網)</h2>
+<h3>Overview(總覽)</h3>
+<h4><span>The popularity of wireless local area networks (WLAN) has increased exponentially because WLAN enables people to remain connected to the network and the Internet without being tethered by wires. In this unit, we are going to cover the concepts, components, standards, design considerations, and security of WLANs. IEEE 802.11 is the overarching standard for wireless LAN technology, and was developed and is maintained by the Institute of Electrical and Electronics Engineers (IEEE) to provide wireless Ethernet connectivity to a wired IEEE 802.3 network.</span></h4>
+<p><span><span>無線局域網（WLAN）的普及已成倍增長，因為WLAN使人們能夠保持連接到網絡和Internet，而不必受到電線的束縛。</span><span>在本單元中，我們將介紹WLAN的概念，組件，標準，設計注意事項和安全性。</span><span>IEEE 802.11是無線LAN技術的總體標準，由電氣和電子工程師協會（IEEE）開發和維護，以提供與有線IEEE 802.3網絡的無線以太網連接。</span></span></p>
+<h3>WLAN Concepts(概念)</h3>
+<p id="N1067E" lang="">Wireless local area networks are broken down into two generalized categories: ad-hoc WLANs and infrastructure WLANs. In ad hoc wireless networks, the wireless devices communicate directly with each other without the need for a wireless access point. This mode is similar to a peer-to-peer network topology, where each device connects to each other device in a mesh configuration using radio frequency waves directly between each wireless device’s interface card. This is the wireless equivalent of connecting two workstations together using a crossover cable, thereby eliminating the need for network infrastructure like hubs and switches.</p>
+<p id="N10681" lang="">The second category, infrastructure WLANs, is the version that is most often and widely utilized. When operating in infrastructure mode, the wireless devices communicate to a centralized wireless router or wireless access point, and then use that centralized device to initiate communication with other wireless or wired devices that are also attached to the centralized device. This is the wireless equivalent of connecting multiple workstations to a common hub or switch and utilizing that network device to create communication between the workstations.</p>
+<p id="N1067E" lang=""><span>無線局域網分為兩大類：即席WLAN和基礎設施WLAN。在自組織無線網絡中，無線設備之間直接相互通信，而無需無線接入點。此模式類似於點對點網絡拓撲，其中每個設備在網狀配置中使用直接在每個無線設備的接口卡之間的射頻波連接到另一個設備。這相當於使用交叉電纜將兩個工作站連接在一起的無線方式，從而消除了對集線器和交換機等網絡基礎設施的需求。</span></p>
+<p id="N10681" lang=""><span><span>第二類是基礎設施WLAN，是最常用和廣泛使用的版本。</span><span>當在基礎結構模式下運行時，無線設備與集中式無線路由器或無線接入點進行通信，然後使用該集中式設備啟動與也連接到該集中式設備的其他無線或有線設備的通信。</span><span>這相當於將多個工作站連接到公共集線器或交換機，並利用該網絡設備在工作站之間創建通信。</span></span></p>
+<h2>Wireless Devices(無線設備)</h2>
+<p id="N10680" lang="">As previously stated, most wireless networks utilize infrastructure mode and make use of a wireless router or wireless access point to connect the multitude of wireless devices in a given network. A wireless router is used in most small office/home office (SOHO) networks. These devices combine a router, a switch, and a wireless access point and serve as a base station and gateway for the wireless devices. The wireless router allows the wireless devices to communicate with each other using its wireless access point and switch functionality, and then uses its router functionality to connect devices to the remote network: in most cases, the Internet. The wireless router often combines multiple devices into a single, small device. These features include a wireless access point (WAP), a switch, a router, a firewall, and a modem (either cable, fiber, or DSL depending on the Internet service provider).</p>
+<p id="N10683" lang="">Wireless access points, which are integrated into SOHO wireless routers, can also be purchased as standalone units. These are most often seen in corporate environments as part of an enterprise network. A wireless access point enables a wired LAN to communicate with a wireless LAN. The standalone WAP does not interconnect the two networks, though, since it is not a router. A WAP is simply a physical device that converts the radio frequency into 1s and 0s that are easily understood by the physical switch. Note that all wireless devices and the devices on the wired LAN are seen as a single subnet in a standard network. A WAP operates like a hub, broadcasting all the information it receives over the radio frequency waves and relying on the connected devices to only listen to their own traffic.</p>
+<div class="imagewrap"><span class="image"><img alt="Picture of a wireless router plugged into the wall. The device is silver and black with a short antenna. There are four green illuminated indicator lights labeled power, status, WAN, and WLAN. There is a section labeled “local network,” with the numbers 1, 2, 3, and 4, and an area labeled “phone.” A logo says “powered by D-Link.”" class="popimg" id="_i_0" onclick="loadImageFromPage(this);" src="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/PCH15/image1.jpeg" title="Picture of a wireless router plugged into the wall. The device is silver and black with a short antenna. There are four green illuminated indicator lights labeled power, status, WAN, and WLAN. There is a section labeled “local network,” with the numbers 1, 2, 3, and 4, and an area labeled “phone.” A logo says “powered by D-Link.”"/></span>
+<p id="N1068B" lang="">Kyocera KR1 Mobile EV-DO router. Photo used under CC-BY-NC license from<span> </span><a href="https://www.flickr.com/photos/laughingsquid/" id="_i_1" lang="" target="_blank">Scott Beale</a>.</p>
+</div>
+<p id="N10693" lang="">Wireless network interface cards (NICs) for WiFi, Bluetooth, and infrared are generally integrated into motherboard circuitry. If your computer doesn’t have one built in, you have the ability to add one either using an external USB wireless network adapter, or installing one in a PCIe expansion slot; just remember to install the appropriate drivers for your operating system to enable proper operations.</p>
+<div actguid="d87f2f940a0001dc6c63d5ea3676a176" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f940a0001dc6c63d5ea3676a176&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd01">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader">learn by doing</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd01">
+<div class="page 482548" id="opch15_lbd01">
+<div class="question" id="482548">
+<div>Rusty has been hired by the Smiths to create a wireless smart home. Rusty has purchased outlets and light bulbs that communicate wirelessly and can be controlled remotely. Which of the following devices should Rusty purchase to best connect the outlets and light bulbs to the wireless network?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582528_i1_rad_0" name="582528_i1_group" type="radio" value="A"/><label class="" for="582528_i1_rad_0">Modem</label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_1" name="582528_i1_group" type="radio" value="B"/><label class="" for="582528_i1_rad_1">Switch</label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_2" name="582528_i1_group" type="radio" value="C"/><label class="" for="582528_i1_rad_2">Router</label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_3" name="582528_i1_group" type="radio" value="D"/><label class="incorrectPrimary" for="582528_i1_rad_3">Cable</label></span></div>
+<div class="feedback clearfix incorrect"><span class="icon"></span>
+<div class="response">Incorrect. A router can provide a wireless access point and connect the wireless light bulbs and outlets to the network.</div>
+<span class="xBtn">x</span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556354" title="Click for hint"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f940a0001dc6c63d5ea3676a176"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f940a0001dc6c63d5ea3676a176" id="reset-d87f2f940a0001dc6c63d5ea3676a176"></a>Reset this Activity</div>
+<div class="pageControls clearfix"></div>
+<div class="pageControls clearfix">
+<p id="N10680" lang=""><span>如前所述，大多數無線網絡都利用基礎架構模式，並利用無線路由器或無線接入點來連接給定網絡中的眾多無線設備。在大多數小型辦公室/家庭辦公室（SOHO）網絡中使用無線路由器。這些設備將路由器，交換機和無線接入點結合在一起，並充當無線設備的基站和網關。無線路由器允許無線設備使用其無線接入點和交換機功能相互通信，然後使用其路由器功能將設備連接到遠程網絡：在大多數情況下為Internet。無線路由器通常將多個設備組合為一個小型設備。這些功能包括無線訪問點（WAP），交換機，路由器，防火牆和調製解調器（電纜，光纖，</span></p>
+<p id="N10683" lang=""><span><span>集成到SOHO無線路由器中的無線訪問點也可以作為獨立單元購買。</span><span>這些通常在公司環境中被視為企業網絡的一部分。</span><span>無線訪問點使有線局域網能夠與無線局域網進行通信。</span><span>但是，獨立的WAP無法將兩個網絡互連，因為它不是路由器。</span><span>WAP只是將無線電頻率轉換為1和0的物理設備，物理交換機很容易理解。</span><span>請注意，所有無線設備和有線LAN上的設備在標準網絡中都被視為單個子網。</span><span>WAP就像集線器一樣工作，它會通過射頻波廣播接收到的所有信息，並依靠連接的設備僅監聽其自身的流量。</span></span></p>
+<div class="imagewrap"><span class="image"><img alt="無線路由器插入牆壁的圖片。 該設備為銀色和黑色，天線較短。 有四個標記為電源，狀態，WAN和WLAN的綠色點亮的指示燈。 有一個標有“本地網絡”的部分，其中有數字1、2、3和4，還有一個標有“電話”的區域。 徽標上寫著“由D-Link供電”。" class="popimg" id="_i_0" onclick="loadImageFromPage(this);" src="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/PCH15/image1.jpeg" title="無線路由器插入牆壁的圖片。 該設備為銀色和黑色，天線較短。 有四個標記為電源，狀態，WAN和WLAN的綠色點亮的指示燈。 有一個標有“本地網絡”的部分，其中有數字1、2、3和4，還有一個標有“電話”的區域。 徽標上寫著“由D-Link供電”。"/></span>
+<p id="N1068B" lang=""><span><span>京瓷KR1移動式EV-DO路由器。</span><span>照片由</span></span><a href="https://www.flickr.com/photos/laughingsquid/" id="_i_1" lang="" target="_blank"><span><span>Scott Beale</span></span></a><span><span>根據CC-BY-NC許可使用</span><span>。</span></span></p>
+</div>
+<p id="N10693" lang=""><span><span>用於WiFi，藍牙和紅外的無線網絡接口卡（NIC）通常集成在主板電路中。</span><span>如果您的計算機沒有內置的適配器，則可以使用外部USB無線網絡適配器添加一個適配器，也可以在PCIe擴展插槽中安裝一個適配器。</span><span>只需記住為您的操作系統安裝適當的驅動程序即可啟用正確的操作。</span></span></p>
+<div actguid="d87f2f940a0001dc6c63d5ea3676a176" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f940a0001dc6c63d5ea3676a176&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd01">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader"><span><span>通過實踐學習</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd01">
+<div class="page 482548" id="opch15_lbd01">
+<div class="question" id="482548">
+<div><span><span>Smiths僱用Rusty來創建無線智能家居。</span><span>Rusty購買了可以無線通訊並可以遠程控制的插座和燈泡。</span><span>Rusty應該購買以下哪些設備來最好地將插座和燈泡連接到無線網絡？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582528_i1_rad_0" name="582528_i1_group" type="radio" value="A"/><label class="" for="582528_i1_rad_0"><span><span>調製解調器</span></span></label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_1" name="582528_i1_group" type="radio" value="B"/><label class="" for="582528_i1_rad_1"><span><span>開關</span></span></label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_2" name="582528_i1_group" type="radio" value="C"/><label class="correctPrimary" for="582528_i1_rad_2"><span><span>路由器</span></span></label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_3" name="582528_i1_group" type="radio" value="D"/><label class="" for="582528_i1_rad_3"><span><span>電纜</span></span></label></span></div>
+<div class="feedback clearfix correct"><span class="icon"></span>
+<div class="response"><span><span>正確。</span><span>路由器可以提供無線訪問點，並將無線燈泡和插座連接到網絡。</span></span></div>
+<span class="xBtn"><span><span>X</span></span></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556354" title="點擊提示"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f940a0001dc6c63d5ea3676a176"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f940a0001dc6c63d5ea3676a176" id="reset-d87f2f940a0001dc6c63d5ea3676a176"></a><span><span>重置此活動</span></span></div>
+<h2>Wireless Standards(無線標準)</h2>
+<h3>Background and History(背景和歷史)</h3>
+<p id="N1069F" lang="">Wireless (Wi-Fi) networking speeds, the technology behind broadcast streams, and wireless security have greatly improved user connectivity, which in turn has increased the use of multi-purpose devices such as smartphones and tablets in corporate and SOHO networks. The freedom of Wi-Fi has become the infrastructure of choice and essentially relegated wired networks more to moving mass data traffic and less user traffic. Although it will not eliminate the wired infrastructure, because Wi-Fi access points need to connect to a wired device using the Ethernet standard, Wi-Fi allows greater expandability and access for IT departments in both corporate and SOHO environments.</p>
+<p id="N106A2" lang="">At the time when Wi-Fi became viable for implementation, the wired standard available in most corporate and SOHO networks operated at 100 Mbps. The Institute of Electrical and Electronics Engineers (IEEE) Standards Committee creates and maintains media access control (MAC) and physical layer (PHY) specifications for implementing WLAN computer communication. The IEEE 802.11 standard is overarching guidance that has been provided for the large number of wireless standards. The IEEE Wi-Fi standard is 802.11 with a small letter designation referring to the next revision (e.g., 802.11n, 802.11ac, 802.11ad, etc.). Each standard (like 802.11a, 802.11b, 802.11g, or 802.11n) is differentiated by the frequency range or frequency band that it utilizes.</p>
+<p id="N106A5" lang="">The 802.11 standard was initially ratified in 1997 and devices compliant with the 802.11a and 802.11b revisions became commercially available soon after in 2000. Despite higher throughput, 802.11a devices were not as readily adopted as 802.11b devices. At the time Wi-Fi became viable to deploy 802.11b at a maximum throughput of 11 Mbps, wired networks were at a minimum of 100 Mbps in most corporate and SOHO environments. The slower throughput kept users more reliant on traditional desktop machines and less likely to use their new wireless-capable laptops wirelessly. Once 802.11g was sufficiently saturated in the market, the disparity between its 54 Mbps speed and the 100 Mbps speed of wired networks became less noticeable and consumers became more interested in being wireless. The industry continued to push for ways to design higher throughput devices and incorporate the hardware into mobile devices such as cell phones, tablets, and lighter-weight laptops.</p>
+<p id="N106A8" lang="">Wireless LANs use two primary frequency bands: 2.4 GHz and 5 GHz. The 2.4 GHz range actually encompasses 2.4 to 2.5 GHz frequencies, while the 5 GHz range is 5.75 GHz to 5.875 GHz. Each frequency band has specific channels (or small portions of frequency) at which the devices operate to avoid overlapping with other wireless LAN devices. For 2.4 GHz frequency bands, it is important to choose channels 1, 6, and 11 to avoid overlapping frequencies. This is because overlapping can cause interference in your networks and cause data transmission and receiving issues for the devices.</p>
+<h3>Speed, Range, and Frequencies(速度，範圍和頻率)</h3>
+<div class="section" id="N106AD">
+<div class="sectionContain">
+<p id="N106B4" lang="">Bandwidth speed has been greatly improved through the revisions after 802.11b, as shown in the table below. When discussing data flow and speed, the two terms referred to are bandwidth and throughput. Though they are often used interchangeably, the two terms are different and need to be understood. Simply put, bandwidth is the theoretical maximum of the given standard, whereas throughput is the actual potential in a real-world scenario. Many factors affect actual throughput, such as frequency, channel overlap, and broadcast streams.</p>
+<table align="center" cellspacing="0" class="wbtable" lang="">
+<tbody>
+<tr class="e">
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang="">Revision</em></em></td>
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang="">(Max) Bandwidth</em></em></td>
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang="">Frequency</em></em></td>
+</tr>
+<tr>
+<td align="center" lang="">802.11a</td>
+<td align="center" lang="">54 Mbps</td>
+<td align="center" lang="">3.7/5.0</td>
+</tr>
+<tr class="e">
+<td align="center" lang="">802.11b</td>
+<td align="center" lang="">11 Mbps</td>
+<td align="center" lang="">2.4</td>
+</tr>
+<tr>
+<td align="center" lang="">802.11g</td>
+<td align="center" lang="">54 Mbps</td>
+<td align="center" lang="">2.4</td>
+</tr>
+<tr class="e">
+<td align="center" lang="">802.11n</td>
+<td align="center" lang="">300/600 Mbps</td>
+<td align="center" lang="">2.4/5.0</td>
+</tr>
+<tr>
+<td align="center" lang="">802.11ac</td>
+<td align="center" lang="">1700+ Gbps</td>
+<td align="center" lang="">5.0</td>
+</tr>
+</tbody>
+</table>
+<p id="N10722" lang="">The four wireless standards that are important to focus your studies on are 802.11a, 802.11b, 802.11g, and 802.11n. 802.11a operates in the 5 GHz frequency band, has a maximum bandwidth of 54 Mbps, and has a range of up to 35 meters indoors and 120 meters outdoors. 802.11b operates in the 2.4 GHz frequency band, has a maximum bandwidth of 11 Mbps, and has a range of up to 32 meters indoors and 140 meters outdoors. 802.11g operates in the 2.4 GHz frequency band, has a maximum bandwidth of 54 Mbps, and has a range of up to 32 meters indoors and 140 meters outdoors. 802.11n features a dual-band transceiver, operating in both the 2.4 GHz and 5 GHz frequency bands, has a maximum bandwidth of more than 300 Mbps, and has a range of up to 70 meters indoors and 250 meters outdoors.</p>
+<p id="N10725" lang="">The 2.4 GHz frequency band is more robust than the 5.0 GHz in that it is less susceptible to interference and has a wider distance range. However, many more devices such as RC toys, cordless telephones, other radio devices such as mice and keyboards, and microwave ovens also operate in the 2.4 GHz frequency, so it is more crowded, which can have a negative impact on throughput. Although the 5.0 GHz frequency band is less crowded, it is more susceptible to obstructions such as building infrastructure (i.e., walls, floors, steel beams, etc.) due to absorption.</p>
+<p id="N10728" lang="">Beginning with the 802.11n standard and subsequently moving to the current 802.11ac standard, manufacturers incorporated multiple antennae to achieve higher throughput. Known as multiple-input multiple-output (MIMO), both revisions accomplish the higher throughput by allowing operation at two different channel widths (20 and 40 MHz) within the same frequency and operate on both 2.4 GHz and 5.0 GHz frequency bands at the same time. Wireless N (802.11n) and wireless AC have a much larger bandwidth and maximum range, because they use MIMO and multiple frequency bands working in tandem to increase transmission and reception.</p>
+<p id="N1072B" lang="">An important note is that wireless N, G, and B are all compatible because they all support the 2.4 GHz frequency, allowing for backward compatibility. If you use multiple standards, like B, G, and N devices at the same time on a singular wireless N wireless access point, the WAP will default back to wireless B standards to support each device, which will significantly slow down the network. Wireless N and wireless A are compatible because they both use the 5 GHz frequency band. However, wireless A is<span> </span><em class="italic" lang="">not<span> </span></em>compatible with wireless B or G devices.</p>
+<div actguid="d87f2f970a0001dc466be0dc297ae99c" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f970a0001dc466be0dc297ae99c&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd02">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader">learn by doing</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd02">
+<div class="page 482565 482566" id="opch15_lbd02">
+<div class="question" id="482565">
+<div>Which wireless standard operates at a maximum of 11 Mbps?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582566_i1_rad_0" name="582566_i1_group" type="radio" value="A"/><label for="582566_i1_rad_0">802.11a</label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_1" name="582566_i1_group" type="radio" value="B"/><label for="582566_i1_rad_1">802.11b</label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_2" name="582566_i1_group" type="radio" value="C"/><label for="582566_i1_rad_2">802.11g</label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_3" name="582566_i1_group" type="radio" value="D"/><label for="582566_i1_rad_3">802.11n</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556392" title="Click for hint"></a></div>
+<div class="question" id="482566">
+<div>Which wireless standard operates at a maximum of more than 300 Mbps with channel bonding?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582567_i1_rad_0" name="582567_i1_group" type="radio" value="A"/><label for="582567_i1_rad_0">802.11a</label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_1" name="582567_i1_group" type="radio" value="B"/><label for="582567_i1_rad_1">802.11b</label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_2" name="582567_i1_group" type="radio" value="C"/><label for="582567_i1_rad_2">802.11g</label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_3" name="582567_i1_group" type="radio" value="D"/><label for="582567_i1_rad_3">802.11n</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556393" title="Click for hint"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f970a0001dc466be0dc297ae99c"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f970a0001dc466be0dc297ae99c" id="reset-d87f2f970a0001dc466be0dc297ae99c"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div actguid="d87f2f980a0001dc70b899ce62794a7a" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f980a0001dc70b899ce62794a7a&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt01">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader">did I get this</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt01">
+<div class="page 482557" id="opch15_digt01">
+<div class="question ddfb" id="482557">
+<div>
+<p id="N1006C" lang="">Drag and drop the items to match each standard with its frequency band, bandwidth, and range.</p>
+<div class="customActivityHolder" data-showinputs="false" height="477" id="custom-482557" layout="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/pch15_digt01_layout.xml" source="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/webcontent/DragDropWrapper.js" type="javascript" width="550">
+<div>
+<div class="component">
+<table border="0" cellspacing="4" width="100%">
+<tbody>
+<tr>
+<td><em>Standard</em></td>
+<td><em>Frequency Band</em></td>
+<td><em>Maximum Bandwidth</em></td>
+<td><em>Maximum Range</em></td>
+</tr>
+<tr>
+<td>802.11a</td>
+<td>
+<div class="target" input_ref="target1"></div>
+</td>
+<td>
+<div class="target" input_ref="target2"></div>
+</td>
+<td>
+<div class="target" input_ref="target3"></div>
+</td>
+</tr>
+<tr>
+<td>802.11b</td>
+<td>
+<div class="target" input_ref="target4"></div>
+</td>
+<td>
+<div class="target" input_ref="target5"></div>
+</td>
+<td>
+<div class="target" input_ref="target6"></div>
+</td>
+</tr>
+<tr>
+<td>802.11g</td>
+<td>
+<div class="target" input_ref="target7"></div>
+</td>
+<td>
+<div class="target" input_ref="target8"></div>
+</td>
+<td>
+<div class="target" input_ref="target9"></div>
+</td>
+</tr>
+<tr>
+<td>802.11n</td>
+<td>
+<div class="target" input_ref="target10"></div>
+</td>
+<td>
+<div class="target" input_ref="target11"></div>
+</td>
+<td>
+<div class="target" input_ref="target12"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="input_source">
 <p></p>
+<div class="initiator" input_val="drag3">35 meters indoors, 120 meters outdoors</div>
+<div class="initiator" input_val="drag11">130−150 Mbps (more than 300 Mbps with channel bonding)</div>
+<div class="initiator" input_val="drag12">70 meters indoors, 250 meters outdoors</div>
+<span> </span>
+<div class="initiator" input_val="drag1">5 GHz</div>
+<span> </span>
+<div class="initiator" input_val="drag6">32 meters indoors, 140 meters outdoors</div>
+<div class="initiator" input_val="drag7">2.4 GHz</div>
+<span> </span>
+<div class="initiator" input_val="drag9">32 meters indoors, 140 meters outdoors</div>
+<span> </span>
+<div class="initiator" input_val="drag10">2.4 GHz or 5 GHz</div>
+<span> </span>
+<div class="initiator" input_val="drag5">11 Mbps</div>
+<div class="initiator" input_val="drag2">54 Mbps</div>
+<span> </span>
+<div class="initiator" input_val="drag8">54 Mbps</div>
+<span> </span>
+<div class="initiator" input_val="drag4">2.4 GHz</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f980a0001dc70b899ce62794a7a"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f980a0001dc70b899ce62794a7a" id="reset-d87f2f980a0001dc70b899ce62794a7a"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div actguid="d87f2f9c0a0001dc47e3370f1623991c" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f9c0a0001dc47e3370f1623991c&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt02">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader">did I get this</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt02">
+<div class="page 482538" id="opch15_digt02">
+<div class="question" id="482538">
+<div>True or False: Using multiple standards — such as B, G, and N devices — at the same time on a single wireless N wireless access point will significantly slow down the network.</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582518_i1_rad_0" name="582518_i1_group" type="radio" value="A"/><label for="582518_i1_rad_0">True</label></span><span class="radioContainer clearfix"><input id="582518_i1_rad_1" name="582518_i1_group" type="radio" value="B"/><label for="582518_i1_rad_1">False</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f9c0a0001dc47e3370f1623991c"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f9c0a0001dc47e3370f1623991c" id="reset-d87f2f9c0a0001dc47e3370f1623991c"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="activitywrap purpose checkpoint wbactivity">
+<div class="activityhead">
+<div class="purposeType purposecheckpoint" title=""><span class="scnReader">checkpoint</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity wbactivity" id="N10791">
+<p id="N10796" lang="">Take a minute to stop and reflect on your progress for this learning objective.</p>
+<div actguid="d87f2f950a0001dc5e96b3d0b5ef31e0" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f950a0001dc5e96b3d0b5ef31e0&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap compositeNest flash" id="dpch15_checkpoint1">
+<div class="activityhead">
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_checkpoint1">
+<div class="page 482802" id="opch15_checkpoint1">
+<div class="question" id="482802">
+<div>Do you feel comfortable with this material and ready to move on?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582880_i1_rad_0" name="582880_i1_group" type="radio" value="A"/><label for="582880_i1_rad_0">Yes, I feel confident in my ability to meet this learning objective.</label></span><span class="radioContainer clearfix"><input id="582880_i1_rad_1" name="582880_i1_group" type="radio" value="B"/><label for="582880_i1_rad_1">No, I'd like to see some more material on this learning objective.</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f950a0001dc5e96b3d0b5ef31e0"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f950a0001dc5e96b3d0b5ef31e0" id="reset-d87f2f950a0001dc5e96b3d0b5ef31e0"></a>Reset this Activity</div>
+<div class="pageControls clearfix"></div>
+<div class="pageControls clearfix">
+<div class="section" id="N106AD">
+<div class="sectionContain">
+<p id="N106B4" lang=""><span>如下表所示，通過802.11b的修訂，帶寬速度得到了極大的提高。在討論數據流和速度時，所指的兩個術語是帶寬和吞吐量。儘管它們經常互換使用，但這兩個術語是不同的，需要理解。簡而言之，帶寬是給定標準的理論最大值，而吞吐量是實際情況下的實際潛力。許多因素都會影響實際的吞吐量，例如頻率，頻道重疊和廣播流。</span></p>
+<table align="center" cellspacing="0" class="wbtable" lang="">
+<tbody>
+<tr class="e">
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang=""><span>修訂版</span></em></em></td>
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang=""><span>（最大）帶寬</span></em></em></td>
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang=""><span>頻率</span></em></em></td>
+</tr>
+<tr>
+<td align="center" lang=""><span>802.11a</span></td>
+<td align="center" lang=""><span>54 Mbps</span></td>
+<td align="center" lang=""><span>3.7 / 5.0</span></td>
+</tr>
+<tr class="e">
+<td align="center" lang=""><span>802.11b</span></td>
+<td align="center" lang=""><span>11 Mbps</span></td>
+<td align="center" lang=""><span>2.4</span></td>
+</tr>
+<tr>
+<td align="center" lang=""><span>802.11g</span></td>
+<td align="center" lang=""><span>54 Mbps</span></td>
+<td align="center" lang=""><span>2.4</span></td>
+</tr>
+<tr class="e">
+<td align="center" lang=""><span>802.11n</span></td>
+<td align="center" lang=""><span>300/600 Mbps</span></td>
+<td align="center" lang=""><span>2.4 / 5.0</span></td>
+</tr>
+<tr>
+<td align="center" lang=""><span>802.11ac</span></td>
+<td align="center" lang=""><span>1700+ Gbps</span></td>
+<td align="center" lang=""><span>5.0</span></td>
+</tr>
+</tbody>
+</table>
+<p id="N10722" lang=""><span>專注於研究的四個無線標準是802.11a，802.11b，802.11g和802.11n。802.11a工作在5 GHz頻段，最大帶寬為54 Mbps，室內的最大距離為35米，室外的最大距離為120米。802.11b工作在2.4 GHz頻段，最大帶寬為11 Mbps，室內最大範圍為32米，室外最大範圍為140米。802.11g工作在2.4 GHz頻段，最大帶寬為54 Mbps，室內最大範圍為32米，室外最大範圍為140米。802.11n具有工作在2.4 GHz和5 GHz頻帶上的雙頻收發器，最大帶寬超過300 Mbps，室內最大範圍為70米，室外最大範圍為250米。</span></p>
+<p id="N10725" lang=""><span>2.4 GHz頻段比5.0 GHz更加健壯，因為它不易受到干擾，並且距離範圍更廣。但是，更多的設備（例如RC玩具，無繩電話，其他無線電設備（例如，鼠標和鍵盤）和微波爐）也以2.4 GHz頻率運行，因此擁擠不堪，這可能會對吞吐量產生負面影響。儘管5.0 GHz頻帶的擁擠程度較小，但是由於吸收，它更容易受到諸如建築基礎設施（例如，牆壁，地板，鋼樑等）的障礙物的影響。</span></p>
+<p id="N10728" lang=""><span>從802.11n標准開始，然後發展到當前的802.11ac標準，製造商採用了多個天線來實現更高的吞吐量。這兩種版本都稱為多輸入多輸出（MIMO），通過允許在同一頻率內在兩個不同的信道寬度（20和40 MHz）下運行，並在2.4 GHz和5.0 GHz頻段上同時運行，從而實現了更高的吞吐量。時間。無線N（802.11n）和無線AC具有更大的帶寬和最大範圍，因為它們使用MIMO和多個頻段協同工作以增加傳輸和接收。</span></p>
+<p id="N1072B" lang=""><span>重要說明是無線N，G和B都兼容，因為它們都支持2.4 GHz頻率，從而實現了向後兼容性。如果您在單個無線N無線接入點上同時使用多個標準，例如B，G和N設備，則WAP將默認恢復為無線B標準以支持每個設備，這將大大降低網絡速度。無線N和無線A兼容，因為它們都使用5 GHz頻帶。但是，無線A與無線B或G設備</span><em class="italic" lang=""><span>不</span></em><span>兼容。</span></p>
+<div actguid="d87f2f970a0001dc466be0dc297ae99c" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f970a0001dc466be0dc297ae99c&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd02">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader"><span>通過實踐學習</span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd02">
+<div class="page 482565 482566" id="opch15_lbd02">
+<div class="question" id="482565">
+<div><span>哪個無線標準以最高11 Mbps的速度運行？</span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582566_i1_rad_0" name="582566_i1_group" type="radio" value="A"/><label for="582566_i1_rad_0"><span>802.11a</span></label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_1" name="582566_i1_group" type="radio" value="B"/><label for="582566_i1_rad_1"><span>802.11b</span></label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_2" name="582566_i1_group" type="radio" value="C"/><label for="582566_i1_rad_2"><span>802.11g</span></label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_3" name="582566_i1_group" type="radio" value="D"/><label for="582566_i1_rad_3"><span>802.11n</span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556392" title="點擊提示"></a></div>
+<div class="question" id="482566">
+<div><span>哪種無線標准通過通道綁定可以以最高300 Mbps的速度運行？</span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582567_i1_rad_0" name="582567_i1_group" type="radio" value="A"/><label for="582567_i1_rad_0"><span>802.11a</span></label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_1" name="582567_i1_group" type="radio" value="B"/><label for="582567_i1_rad_1"><span>802.11b</span></label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_2" name="582567_i1_group" type="radio" value="C"/><label for="582567_i1_rad_2"><span>802.11g</span></label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_3" name="582567_i1_group" type="radio" value="D"/><label for="582567_i1_rad_3"><span>802.11n</span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556393" title="點擊提示"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f970a0001dc466be0dc297ae99c"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f970a0001dc466be0dc297ae99c" id="reset-d87f2f970a0001dc466be0dc297ae99c"></a><span>重置此活動</span></div>
+</div>
+</div>
+</div>
+<div actguid="d87f2f980a0001dc70b899ce62794a7a" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f980a0001dc70b899ce62794a7a&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt01">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader"><span>我得到這個了嗎</span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt01">
+<div class="page 482557" id="opch15_digt01">
+<div class="question ddfb" id="482557">
+<div>
+<p id="N1006C" lang=""><span>拖放項目以使其符合每個標準的頻段，帶寬和範圍。</span></p>
+<div class="customActivityHolder" data-showinputs="false" height="477" id="custom-482557" layout="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/pch15_digt01_layout.xml" source="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/webcontent/DragDropWrapper.js" type="javascript" width="550">
+<div>
+<div class="component">
+<table border="0" cellspacing="4" width="100%">
+<tbody>
+<tr>
+<td><em><span>標準</span></em></td>
+<td><em><span>頻帶</span></em></td>
+<td><em><span>最大帶寬</span></em></td>
+<td><em><span>最大範圍</span></em></td>
+</tr>
+<tr>
+<td><span>802.11a</span></td>
+<td>
+<div class="target" input_ref="target1"></div>
+</td>
+<td>
+<div class="target" input_ref="target2"></div>
+</td>
+<td>
+<div class="target" input_ref="target3"></div>
+</td>
+</tr>
+<tr>
+<td><span>802.11b</span></td>
+<td>
+<div class="target" input_ref="target4"></div>
+</td>
+<td>
+<div class="target" input_ref="target5"></div>
+</td>
+<td>
+<div class="target" input_ref="target6"></div>
+</td>
+</tr>
+<tr>
+<td><span>802.11g</span></td>
+<td>
+<div class="target" input_ref="target7"></div>
+</td>
+<td>
+<div class="target" input_ref="target8"></div>
+</td>
+<td>
+<div class="target" input_ref="target9"></div>
+</td>
+</tr>
+<tr>
+<td><span>802.11n</span></td>
+<td>
+<div class="target" input_ref="target10"></div>
+</td>
+<td>
+<div class="target" input_ref="target11"></div>
+</td>
+<td>
+<div class="target" input_ref="target12"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="input_source">
+<p></p>
+<div class="initiator" input_val="drag3"><span>室內35米，室外120米</span></div>
+<span> </span>
+<div class="initiator" input_val="drag11"><span>130−150 Mbps（使用通道綁定時超過300 Mbps）</span></div>
+<div class="initiator" input_val="drag12"><span>室內70米，室外250米</span></div>
+<span> </span>
+<div class="initiator" input_val="drag1"><span>5 GHz的</span></div>
+<span> </span>
+<div class="initiator" input_val="drag6"><span>室內32米，室外140米</span></div>
+<span> </span>
+<div class="initiator" input_val="drag7"><span>2.4 GHz</span></div>
+<div class="initiator" input_val="drag9"><span>室內32米，室外140米</span></div>
+<span> </span>
+<div class="initiator" input_val="drag10"><span>2.4 GHz或5 GHz</span></div>
+<span> </span>
+<div class="initiator" input_val="drag5"><span>11 Mbps</span></div>
+<span> </span>
+<div class="initiator" input_val="drag2"><span>54 Mbps</span></div>
+<span> </span>
+<div class="initiator" input_val="drag8"><span>54 Mbps</span></div>
+<span> </span>
+<div class="initiator" input_val="drag4"><span>2.4 GHz</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f980a0001dc70b899ce62794a7a"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f980a0001dc70b899ce62794a7a" id="reset-d87f2f980a0001dc70b899ce62794a7a"></a><span>重置此活動</span></div>
+</div>
+</div>
+</div>
+<div actguid="d87f2f9c0a0001dc47e3370f1623991c" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f9c0a0001dc47e3370f1623991c&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt02">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader"><span>我得到這個了嗎</span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt02">
+<div class="page 482538" id="opch15_digt02">
+<div class="question" id="482538">
+<div><span>是非題：在單個無線N無線接入點上同時使用多個標準（例如B，G和N設備）將大大降低網絡速度。</span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582518_i1_rad_0" name="582518_i1_group" type="radio" value="A"/><label for="582518_i1_rad_0"><span>真正</span></label></span><span class="radioContainer clearfix"><input id="582518_i1_rad_1" name="582518_i1_group" type="radio" value="B"/><label for="582518_i1_rad_1"><span>假</span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f9c0a0001dc47e3370f1623991c"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f9c0a0001dc47e3370f1623991c" id="reset-d87f2f9c0a0001dc47e3370f1623991c"></a><span>重置此活動</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="activitywrap purpose checkpoint wbactivity">
+<div class="activityhead">
+<div class="purposeType purposecheckpoint" title=""><span class="scnReader"><span><span>檢查站</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity wbactivity" id="N10791">
+<p id="N10796" lang=""><span><span>花一點時間停下來，為這個學習目標反思自己的進步。</span></span></p>
+<div class="activityhead">
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_checkpoint1">
+<div class="page 482802" id="opch15_checkpoint1">
+<div class="question" id="482802">
+<div><span><span>您對這種材料感到滿意並準備繼續前進嗎？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582880_i1_rad_0" name="582880_i1_group" type="radio" value="A"/><label for="582880_i1_rad_0"><span><span>是的，我對實現這一學習目標的能力充滿信心。</span></span></label></span><span class="radioContainer clearfix"><input id="582880_i1_rad_1" name="582880_i1_group" type="radio" value="B"/><label for="582880_i1_rad_1"><span><span>不，我想了解有關此學習目標的更多材料。</span></span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f950a0001dc5e96b3d0b5ef31e0"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f950a0001dc5e96b3d0b5ef31e0" id="reset-d87f2f950a0001dc5e96b3d0b5ef31e0"></a><span><span>重置此活動</span></span></div>
+<div class="pageControls clearfix"><span><span></span></span></div>
+<h3 class="pageControls clearfix"><span><span>Sources of Interference(干擾源)</span></span></h3>
+<p id="N107C0" lang="">Wireless networks are subject to radio frequency interference (RFI) because of other devices using frequencies in the same band as the WLAN devices. There are many sources of interference in the 2.4 GHz range, which is one reason that wireless N and newer networks have switched to the 5 GHz frequency band. The frequency interference can be caused by other WLAN devices, such as having numerous WLANs in a single building and each WAP using the same channel or channels close in number (like channel 1 and 2, or 1 and 3). To prevent this, 2.4 GHz standard wireless devices should operate in channels separated by multiple channels, such as using channels 1, 6, and 11.</p>
+<p id="N107C3" lang="">Cordless phones, baby monitors, microwave ovens, wireless security systems, and other cordless electronics generally use the 2.4 GHz range, as well, so if you have many of those devices near your network, you may wish to upgrade to wireless N (5 GHz) to avoid interference. Physical obstacles, such as walls, appliances, cabinets, and other dense objects can also block the radio wave propagation, causing weak signals and network interference. Finally, the cause of interference could be that the originating signal is too weak, and some wireless access points allow you to increase the transmission power to overcome this type of interference.</p>
+<p id="N107C0" lang=""><span>由於其他設備使用與WLAN設備相同頻帶的頻率，因此無線網絡會受到射頻干擾（RFI）。在2.4 GHz範圍內有許多干擾源，這是無線N和較新網絡已切換到5 GHz頻帶的原因之一。頻率干擾可能是由其他WLAN設備引起的，例如在同一建築物中具有多個WLAN，並且每個WAP使用的通道數量相同（或通道1和2，或通道1和3）相同。為避免這種情況，2.4 GHz標準無線設備應在由多個通道分隔的通道中運行，例如使用通道1、6和11。</span></p>
+<p id="N107C3" lang=""><span><span>無繩電話，嬰兒監視器，微波爐，無線安全系統和其他無繩電子設備通常也使用2.4 GHz範圍，因此，如果網絡中有許多此類設備，則可能希望升級到無線N（5 GHz ），以避免干擾。</span><span>牆壁，電器，機櫃和其他密集物體等物理障礙物也會阻擋無線電波的傳播，從而導致信號微弱和網絡干擾。</span><span>最後，造成乾擾的原因可能是始發信號太弱，某些無線接入點使您可以增加傳輸功率以克服這種類型的干擾。</span></span></p>
+<h2><span><span>Privacy and Security(隱私和安全)</span></span></h2>
+<h3><span><span>1</span></span></h3>
+<span><span><span></span></span></span></div>
+<div class="actContain"><span><span><span>Due to the nature of Wi-Fi being transmitted through radio frequencies, the data transferred is susceptible to being viewed and captured by any other radio receiver. Encryption and network security have become a paramount concern for IT professionals at all levels. If a Wi-Fi network is set up without encryption it is “open,” and anybody with packet sniffing software in the vicinity can capture the transmissions between the host and the wireless access point. Public cafes and retailers offering open access do so as a courtesy, but the user must know that any online login information, such as connecting to a bank, Facebook, or Twitter, is not secure and is susceptible to capture. For the prospective technician, you must know the current encryption types and best practices to secure a WLAN.</span></span></span></div>
+<div class="actContain">
+<h4><span><span><span></span></span></span></h4>
+</div>
+<div class="actContain">
+<h4><span><span><span>由於Wi-Fi會通過射頻傳輸，因此傳輸的數據很容易被其他任何無線電接收器查看和捕獲。</span><span>加密和網絡安全已成為各級IT專業人員最關心的問題。</span><span>如果建立了未加密的Wi-Fi網絡，則它是“開放的”，附近裝有數據包嗅探軟件的任何人都可以捕獲主機與無線訪問點之間的傳輸。</span><span>提供開放訪問權限的公共咖啡館和零售商這樣做是出於禮貌，但是用戶必須知道任何在線登錄信息（例如連接到銀行，Facebook或Twitter）都不安全並且容易被捕獲。</span><span>對於準技術人員，您必須了解當前的加密類型和最佳做法以保護WLAN。</span></span></span></h4>
+</div>
+<div class="actContain"><span><span><span></span></span></span></div>
+<h3 actguid="d87f2f950a0001dc5e96b3d0b5ef31e0" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f950a0001dc5e96b3d0b5ef31e0&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;"><span><span><span>Encryption Types(加密類型)</span></span></span></h3>
+<span><span><span>In order to provide security for wireless networks, the 802.11 standards provide for three major types of password protection/encryption: wired equivalent privacy (WEP), Wi-Fi protected access (WPA), and Wi-Fi protected access 2 (WPA2).</span></span></span></div>
+<div class="activity wbactivity"><span><span><span>為了提供無線網絡的安全性，802.11標準提供了三種主要的密碼保護/加密類型：有線等效保密（WEP），Wi-Fi保護訪問（WPA）和Wi-Fi保護訪問2（WPA2）。</span></span></span></div>
+<h3 class="activity wbactivity"><span><span><span>Wired Equivalent Privacy (WEP) (有線等效保密（WEP）)</span></span></span></h3>
+<p id="N106A6" lang="">In the original 802.11 standard, the only security provided was WEP, which claims to be as secure as a wired network connection. This wireless connection was secured using encryption with a 40-bit WEP key that all access points and client devices would use (preshared key). This symmetric encryption was a good idea, but since the key was so small (40 bits), it was quickly broken by attackers.</p>
+<p id="N106A9" lang="">To solve this, WEP evolved into using a 64-bit key and could support keys up to 128 bits, which would provide strong encryption. Unfortunately, the WEP algorithm used for encryption also relied on using an initialization vector (IV) in combination with the preshared key to create the strong encryption, but the IV was only created at 24 bits and is sent in plain text or clear text during the preshared key exchange. This was quickly compromised by attackers using a brute-force attack to determine the password using the weak IV. Many utilities exist in the open-source realm that can crack WEP passwords within just a few minutes on modern hardware. For this reason, WEP is considered insecure today and should never be used in your networks.</p>
+<p id="N106A6" lang=""><span>在原始802.11標準中，唯一提供的安全性是WEP，它聲稱與有線網絡連接一樣安全。通過使用所有訪問點和客戶端設備都將使用的40位WEP密鑰（預共享密鑰）進行加密來保護此無線連接。這種對稱加密是一個好主意，但是由於密鑰很小（40位），因此攻擊者很快就將其破壞了。</span></p>
+<p lang=""><span>為了解決這個問題，WEP演變為使用64位密鑰，並且可以支持高達128位的密鑰，從而可以提供強大的加密功能。</span><span>不幸的是，用於加密的WEP算法還依賴於使用初始化向量（IV）結合預共享密鑰來創建強加密，但是IV僅以24位創建，並且在加密期間以純文本或明文發送。預共享密鑰交換。</span><span>攻擊者使用強力攻擊使用弱IV來確定密碼，從而很快破壞了這一安全性。</span><span>開源領域中存在許多實用程序，可以在短短幾分鐘內在現代硬件上破解WEP密碼。</span><span>因此，WEP在今天被認為是不安全的，永遠不要在您的網絡中使用。</span></p>
+<h3><span><span><span>Wi-Fi Protected Access (WPA)(Wi-Fi保護訪問（WPA）)</span></span></span></h3>
+<p>The WPA standard was introduced to replace the insecure WEP. WPA used a 48-bit IV in place of WEP’s 24-bit IV. This upgraded IV uses a temporal key integrity protocol (TKIP). TKIP is an IEEE standard that was designed to provide more secure encryption. TKIP is a suite of algorithms that allows WLAN equipment to upgrade to TKIP without replacing hardware. TKIP encrypts each data packet with a unique encryption key, and the keys are much stronger than WEP. To increase key strength, TKIP includes four additional algorithms.</p>
+<p>In addition to TKIP, the WPA standard uses message integrity check (MIC) to confirm that data was not modified in transit. MIC uses a “hash” to verify that a message has not been altered. WPA supported both preshared key mode and enterprise mode. In enterprise mode, users are required to authenticate before exchanging their keys and each key between the client and access point is only temporary, reducing the chance of compromise. Unfortunately, WPA also suffered security flaws centered on the use of passphrases and pre-shared key (PSK) management and is now also considered to be unsecure.</p>
+<p>引入了WPA標準來代替不安全的WEP。WPA使用48位IV代替WEP的24位IV。此升級的IV使用臨時密鑰完整性協議（TKIP）。TKIP是旨在提供更安全的加密的IEEE標準。TKIP是一套算法，可以使WLAN設備升級到TKIP，而無需更換硬件。TKIP使用唯一的加密密鑰加密每個數據包，並且該密鑰比WEP強得多。為了增強按鍵強度，TKIP包括四個附加算法。</p>
+<p>除了TKIP，WPA標準還使用消息完整性檢查（MIC）來確認數據在傳輸過程中沒有被修改。MIC使用“哈希”來驗證消息是否未被更改。WPA支持預共享密鑰模式和企業模式。在企業模式下，要求用戶在交換密鑰之前進行身份驗證，並且客戶端和訪問點之間的每個密鑰只是臨時的，從而減少了洩露的機會。不幸的是，WPA還遭受了圍繞密碼短語和預共享密鑰（PSK）管理的安全缺陷，現在也被認為是不安全的。</p>
+<h3>Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）)</h3>
+<span>Wi-Fi protected access version 2 (WPA2) was implemented to replace both WEP and WPA because of the insecurities with the 24-bit and 48-bit initialization vectors. WPA2 requires stronger encryption and integrity checking, using counter mode (CCMP) with cipher block chaining message authentication code protocol for integrity checking. Additionally, the encryption used for WPA2 is the advanced encryption standard (AES) with a 128-bit key, the same algorithm used by the United States government to protect their classified networks. Using WPA2 creates a secure wireless network, but only when used with good passwords and shared keys. WPA2 also supports enterprise mode for centralized user authentication (used in corporate networks) and a personal mode for preshared key support (used in most homes and small offices). The key to security with WPA2 is a strong password, since the current method of breaking into a WPA2 network is to use brute force attacks against the preshared key. If your key is long and complex, the attackers will not be able to penetrate your WPA2 wireless networks.</span></div>
+<div class="actContain"><span><span>由於24位和48位初始化向量的不安全性，實施了Wi-Fi保護訪問版本2（WPA2）來替代WEP和WPA。</span><span>WPA2需要使用計數器模式（CCMP）和密碼塊鏈接消息身份驗證代碼協議進行更強的加密和完整性檢查，以進行完整性檢查。</span><span>此外，用於WPA2的加密是具有128位密鑰的高級加密標準（AES），與美國政府用於保護其機密網絡的算法相同。</span><span>使用WPA2可以創建安全的無線網絡，但前提是必須使用良好的密碼和共享密鑰。</span><span>WPA2還支持用於集中式用戶身份驗證的企業模式（用於公司網絡）和用於預共享密鑰支持的個人模式（用於大多數家庭和小型辦公室）。</span><span>使用WPA2進行安全保護的密鑰是一個強密碼，因為當前闖入WPA2網絡的方法是對預共享密鑰使用暴力攻擊。</span><span>如果密鑰又長又復雜，攻擊者將無法穿透您的WPA2無線網絡。</span></span></div>
+<h3 class="actContain"><span><span>Wi-Fi Protected Access 2 Enterprise(Wi-Fi保護訪問2企業)</span></span></h3>
+<div class="section" id="N106D8">
+<div class="sectionContain">
+<p id="N106DF" lang="">WPA2 enterprise is a client/server model using the remote authentication dial-in user service (RADIUS) protocol found in larger corporate networks. The RADIUS server runs in the application layer using UDP (user datagram protocol) as a transport method, and is usually a software background service running on a UNIX or Windows server. WPA2 enterprise eliminates a shared key and replaces it with a username and a password to connect to the corporate Wi-Fi network.</p>
+<p id="N106E2" lang="">Click<span> here</span><span> </span>to access a table of 802.11 wireless networking standards.</p>
+</div>
+</div>
+<div actguid="d87f2fa10a0001dc0ebd5d384ea39307" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa10a0001dc0ebd5d384ea39307&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd03">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader">learn by doing</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd03">
+<div class="page 482493 482494" id="opch15_lbd03">
+<div class="question" id="482493">
+<div>Pat needs to secure a wireless network. Which of the following types of password protection/encryption should Pat choose to make the network the most secure?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582465_i1_rad_0" name="582465_i1_group" type="radio" value="A"/><label for="582465_i1_rad_0">WEP</label></span><span class="radioContainer clearfix"><input id="582465_i1_rad_1" name="582465_i1_group" type="radio" value="B"/><label for="582465_i1_rad_1">WPA</label></span><span class="radioContainer clearfix"><input id="582465_i1_rad_2" name="582465_i1_group" type="radio" value="C"/><label for="582465_i1_rad_2">WPA2</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556291" title="Click for hint"></a></div>
+<div class="question" id="482494">
+<div>True or False: Because it uses 128-bit key encryption, WPA2 is more secure and a strong password is not needed for WPA2.</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582466_i1_rad_0" name="582466_i1_group" type="radio" value="A"/><label for="582466_i1_rad_0">True</label></span><span class="radioContainer clearfix"><input id="582466_i1_rad_1" name="582466_i1_group" type="radio" value="B"/><label for="582466_i1_rad_1">False</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556292" title="Click for hint"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa10a0001dc0ebd5d384ea39307"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2fa10a0001dc0ebd5d384ea39307" id="reset-d87f2fa10a0001dc0ebd5d384ea39307"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div actguid="d87f2fa30a0001dc3210d9a0e5c2ddb4" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa30a0001dc3210d9a0e5c2ddb4&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt03">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader">did I get this</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt03">
+<div class="page 482592 482593" id="opch15_digt03">
+<div class="question" id="482592">
+<div>True or False: WEP uses AES-based encryption.</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582604_i1_rad_0" name="582604_i1_group" type="radio" value="A"/><label for="582604_i1_rad_0">True</label></span><span class="radioContainer clearfix"><input id="582604_i1_rad_1" name="582604_i1_group" type="radio" value="B"/><label for="582604_i1_rad_1">False</label></span></div>
+</div>
+</div>
+<div class="question" id="482593">
+<div>802.11 standards provide what types of password protection/encryption?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582605_i1_rad_0" name="582605_i1_group" type="radio" value="A"/><label for="582605_i1_rad_0">WEP</label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_1" name="582605_i1_group" type="radio" value="B"/><label for="582605_i1_rad_1">WPA</label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_2" name="582605_i1_group" type="radio" value="C"/><label for="582605_i1_rad_2">WPA2</label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_3" name="582605_i1_group" type="radio" value="D"/><label for="582605_i1_rad_3">All of the above</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa30a0001dc3210d9a0e5c2ddb4"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2fa30a0001dc3210d9a0e5c2ddb4" id="reset-d87f2fa30a0001dc3210d9a0e5c2ddb4"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div class="section" id="N106D8">
+<div class="sectionContain">
+<p id="N106DF" lang=""><span>WPA2企業版是使用大型企業網絡中使用的遠程身份驗證撥入用戶服務（RADIUS）協議的客戶端/服務器模型。RADIUS服務器使用UDP（用戶數據報協議）作為傳輸方法在應用程序層中運行，並且通常是在UNIX或Windows服務器上運行的軟件後台服務。WPA2企業消除了共享密鑰，並用用戶名和密碼代替了共享密鑰以連接到公司的Wi-Fi網絡。</span></p>
+<p id="N106E2" lang=""><span>單擊此處</span><span>以訪問802.11無線網絡標準表。</span></p>
+</div>
+</div>
+<div actguid="d87f2fa10a0001dc0ebd5d384ea39307" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa10a0001dc0ebd5d384ea39307&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd03">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader"><span><span>通過實踐學習</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd03">
+<div class="page 482493 482494" id="opch15_lbd03">
+<div class="question" id="482493">
+<div><span><span>Pat需要保護無線網絡。</span><span>Pat應該選擇以下哪種類型的密碼保護/加密方式來使網絡最安全？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582465_i1_rad_0" name="582465_i1_group" type="radio" value="A"/><label for="582465_i1_rad_0"><span><span>WEP</span></span></label></span><span class="radioContainer clearfix"><input id="582465_i1_rad_1" name="582465_i1_group" type="radio" value="B"/><label for="582465_i1_rad_1"><span><span>WPA</span></span></label></span><span class="radioContainer clearfix"><input id="582465_i1_rad_2" name="582465_i1_group" type="radio" value="C"/><label for="582465_i1_rad_2"><span><span>WPA2</span></span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556291" title="點擊提示"></a></div>
+<div class="question" id="482494">
+<div><span><span>是非題：因為WPA2使用128位密鑰加密，所以它更加安全，WPA2不需要強密碼。</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582466_i1_rad_0" name="582466_i1_group" type="radio" value="A"/><label for="582466_i1_rad_0"><span><span>真正</span></span></label></span><span class="radioContainer clearfix"><input id="582466_i1_rad_1" name="582466_i1_group" type="radio" value="B"/><label for="582466_i1_rad_1"><span><span>假</span></span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556292" title="點擊提示"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa10a0001dc0ebd5d384ea39307"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2fa10a0001dc0ebd5d384ea39307" id="reset-d87f2fa10a0001dc0ebd5d384ea39307"></a><span><span>重置此活動</span></span></div>
+</div>
+</div>
+</div>
+<div actguid="d87f2fa30a0001dc3210d9a0e5c2ddb4" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa30a0001dc3210d9a0e5c2ddb4&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt03">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader"><span><span>我得到這個了嗎</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt03">
+<div class="page 482592 482593" id="opch15_digt03">
+<div class="question" id="482592">
+<div><span><span>是非題：WEP使用基於AES的加密。</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582604_i1_rad_0" name="582604_i1_group" type="radio" value="A"/><label for="582604_i1_rad_0"><span><span>真正</span></span></label></span><span class="radioContainer clearfix"><input id="582604_i1_rad_1" name="582604_i1_group" type="radio" value="B"/><label for="582604_i1_rad_1"><span><span>假</span></span></label></span></div>
+</div>
+</div>
+<div class="question" id="482593">
+<div><span><span>802.11標準提供什麼類型的密碼保護/加密？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582605_i1_rad_0" name="582605_i1_group" type="radio" value="A"/><label for="582605_i1_rad_0"><span><span>WEP</span></span></label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_1" name="582605_i1_group" type="radio" value="B"/><label for="582605_i1_rad_1"><span><span>WPA</span></span></label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_2" name="582605_i1_group" type="radio" value="C"/><label for="582605_i1_rad_2"><span><span>WPA2</span></span></label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_3" name="582605_i1_group" type="radio" value="D"/><label for="582605_i1_rad_3"><span><span>上述所有的</span></span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa30a0001dc3210d9a0e5c2ddb4"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2fa30a0001dc3210d9a0e5c2ddb4" id="reset-d87f2fa30a0001dc3210d9a0e5c2ddb4"></a><span><span>重置此活動</span></span></div>
+</div>
+</div>
+</div>
+<div class="activitywrap purpose checkpoint wbactivity">
+<div class="activityhead">
+<div class="purposeType purposecheckpoint" title=""><span class="scnReader"><span><span>檢查站</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity wbactivity" id="N1072A">
+<p id="N1072F" lang=""><span><span>花一點時間停下來，為這個學習目標反思自己的進步。</span></span></p>
+<div actguid="d87f2fa60a0001dc2f08216313c3e429" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa60a0001dc2f08216313c3e429&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap compositeNest flash" id="dpch15_checkpoint2">
+<div class="activityhead">
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_checkpoint2">
+<div class="page 482813" id="opch15_checkpoint2">
+<div class="question" id="482813">
+<div><span><span>您對這種材料感到滿意並準備繼續前進嗎？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582891_i1_rad_0" name="582891_i1_group" type="radio" value="A"/><label for="582891_i1_rad_0"><span><span>是的，我對實現這一學習目標的能力充滿信心。</span></span></label></span><span class="radioContainer clearfix"><input id="582891_i1_rad_1" name="582891_i1_group" type="radio" value="B"/><label for="582891_i1_rad_1"><span><span>不，我想了解有關此學習目標的更多材料。</span></span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa60a0001dc2f08216313c3e429"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2fa60a0001dc2f08216313c3e429" id="reset-d87f2fa60a0001dc2f08216313c3e429"></a><span><span>重置此活動</span></span></div>
+<h2 class="pageControls clearfix"><span><span>Wireless Networking Types(無線網絡類型)</span></span></h2>
+<h3><span><span>1</span></span></h3>
+<p id="N1069B" lang="">In addition to Wi-Fi networks, there are other wireless options that exist, such as Bluetooth and infrared. These types of technologies are usually used for Personal Area Networks (PANs) in order to connect (or pair) two devices in an ad hoc manner.</p>
+<p id="N1069E" lang="">Bluetooth radio is used to connect many kinds of devices, including mice, keyboards, remotes, smartphones, tablets, printers, projectors, and many others. Just as USB replaced most cables between devices and the workstation, Bluetooth replaces most previous wireless technologies for personal area networks (like infrared). Bluetooth does not require direct line of sight between connected devices. Bluetooth is a low-speed, short-range networking technology that comes in three classes. Class 1, which is not common, can transmit up to 100 meters. Class 2, the most common Bluetooth in use today, can travel up to 10 meters. Class 3, a very short-range variant, only goes one meter. Bluetooth can operate at up to three Mbps, which in today’s modern computer networks is considered extremely slow.</p>
+<p id="N106A1" lang="">Infrared existed before Bluetooth and was a short-range, low-speed, line-of-sight communication path. It was heavily used to connect personal digital assistants (PDAs) and wireless mice and keyboards. Not common in contemporary computers, it was replaced almost entirely by Bluetooth, but some machines keep an integrated infrared sensor for backward compatibility. If you have a need for infrared, but it isn’t included on your machine, you can add an infrared sensor through a USB adapter.</p>
+<div actguid="d87f2fad0a0001dc14cb0604e23fe996" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fad0a0001dc14cb0604e23fe996&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt04">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader">did I get this</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt04">
+<div class="page 482570" id="opch15_digt04">
+<div class="question" id="482570">
+<div>True or False: Bluetooth transmissions require the two devices to be directly in line of sight with one another for full functionality.</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582571_i1_rad_0" name="582571_i1_group" type="radio" value="A"/><label for="582571_i1_rad_0">True</label></span><span class="radioContainer clearfix"><input id="582571_i1_rad_1" name="582571_i1_group" type="radio" value="B"/><label for="582571_i1_rad_1">False</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fad0a0001dc14cb0604e23fe996"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2fad0a0001dc14cb0604e23fe996" id="reset-d87f2fad0a0001dc14cb0604e23fe996"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div class="imagewrap"><span class="image"><img alt="Image of the Bluetooth logo, which is a white character resembling an angular, stylized letter B in a blue oval." class="popimg" id="_i_0" onclick="loadImageFromPage(this);" src="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/PCH15/image2.png" title="Image of the Bluetooth logo, which is a white character resembling an angular, stylized letter B in a blue oval."/></span>
+<p id="N106C8" lang="">Bluetooth logo. Photo used under CC-BY license from<span> </span><a href="https://flic.kr/p/mwj2mV" id="_i_1" lang="" target="_blank">Intel Free Press.</a></p>
+</div>
+<div class="section section-lab" id="N106CF">
+<p id="N1069B" lang=""><span>除了Wi-Fi網絡外，還存在其他無線選項，例如藍牙和紅外線。這些類型的技術通常用於個人區域網（PAN），以便以臨時方式連接（或配對）兩個設備。</span></p>
+<p id="N1069E" lang=""><span><span>藍牙無線電用於連接多種設備，包括鼠標，鍵盤，遙控器，智能手機，平板電腦，打印機，投影儀等。</span><span>就像USB取代了設備和工作站之間的大多數電纜一樣，藍牙也取代了個人區域網（例如紅外）中大多數以前的無線技術。</span><span>藍牙不需要所連接設備之間的直接視線。</span><span>藍牙是一種低速，短距離網絡技術，分為三類。</span><span>不常見的1類可以傳輸100米。</span><span>第2類，是當今使用的最常見的藍牙，可以傳輸10米。</span><span>3級是一種非常短距離的變體，只能行駛一米。</span><span>藍牙可以以高達3 Mbps的速度運行，這在當今的現代計算機網絡中被認為是非常慢的。</span></span></p>
+<p id="N106A1" lang=""><span><span>紅外技術早於藍牙技術就已存在，它是一種短距離，低速，視線通信的路徑。</span><span>它被大量用於連接個人數字助理（PDA）和無線鼠標和鍵盤。</span><span>在現代計算機中並不常見，它幾乎已完全被藍牙取代，但某些機器保留了集成的紅外傳感器以實現向後兼容性。</span><span>如果您需要紅外線，但您的機器中沒有紅外線，則可以通過USB適配器添加紅外線傳感器。</span></span></p>
+<div actguid="d87f2fad0a0001dc14cb0604e23fe996" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fad0a0001dc14cb0604e23fe996&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt04">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader"><span><span>我得到這個了嗎</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt04">
+<div class="page 482570" id="opch15_digt04">
+<div class="question" id="482570">
+<div><span><span>是非題：藍牙傳輸要求兩個設備彼此直接在視線內才能發揮全部功能。</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582571_i1_rad_0" name="582571_i1_group" type="radio" value="A"/><label for="582571_i1_rad_0"><span><span>真正</span></span></label></span><span class="radioContainer clearfix"><input id="582571_i1_rad_1" name="582571_i1_group" type="radio" value="B"/><label for="582571_i1_rad_1"><span><span>假</span></span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fad0a0001dc14cb0604e23fe996"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2fad0a0001dc14cb0604e23fe996" id="reset-d87f2fad0a0001dc14cb0604e23fe996"></a><span><span>重置此活動</span></span></div>
+</div>
+</div>
+</div>
+<div class="imagewrap"><span class="image"><img alt="藍牙徽標的圖像，它是一個白色字符，類似於藍色橢圓形中的帶角度的風格化字母B。" class="popimg" id="_i_0" onclick="loadImageFromPage(this);" src="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/PCH15/image2.png" title="藍牙徽標的圖像，它是一個白色字符，類似於藍色橢圓形中的帶角度的風格化字母B。"/></span>
+<p id="N106C8" lang=""><span><span>藍牙徽標。</span><span>照片由</span><a href="https://flic.kr/p/mwj2mV" id="_i_1" lang="" target="_blank"><span>Intel Free Press</span></a><span>根據CC-BY許可使用</span></span><a href="https://flic.kr/p/mwj2mV" id="_i_1" lang="" target="_blank"><span><span>。</span></span></a></p>
+</div>
+<h3 class="section section-lab" id="N106CF">Lab Activity(實驗活動)</h3>
+<div class="section section-lab" id="N106CF">
+<div class="sectionContain">
+<p id="N106D7" lang="">In this lab exercise, you should securely set up and configure a wireless router. To do so, you should change the default IP address, change the password to something more secure, and configure the wireless network. First, set up the router for a LAN. Change the IP address to 192.168.10.1, and the DHCP address range to 192.168.10.50 to 192.168.10.70. Change the router password, enable the security, and set the network key/password.</p>
+<p id="N106DA" lang=""><iframe data-mce-fragment="1" frameborder="0" height="680" id="_i_2" src="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/webcontent/configure_wireless_router/index.html" width="810"></iframe></p>
+</div>
+</div>
+<div actguid="d87f2faf0a0001dc69cb03eefdb32a7d" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2faf0a0001dc69cb03eefdb32a7d&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd04">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader">learn by doing</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd04">
+<div class="page 482520" id="opch15_lbd04">
+<div class="question" id="482520">
+<div>John has asked you to install his computer on the network. Which of the following devices would you not have to install to complete his request?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582494_i1_rad_0" name="582494_i1_group" type="radio" value="A"/><label for="582494_i1_rad_0">A network interface card</label></span><span class="radioContainer clearfix"><input id="582494_i1_rad_1" name="582494_i1_group" type="radio" value="B"/><label for="582494_i1_rad_1">An AGP adapter card</label></span><span class="radioContainer clearfix"><input id="582494_i1_rad_2" name="582494_i1_group" type="radio" value="C"/><label for="582494_i1_rad_2">A wireless card</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556320" title="Click for hint"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2faf0a0001dc69cb03eefdb32a7d"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2faf0a0001dc69cb03eefdb32a7d" id="reset-d87f2faf0a0001dc69cb03eefdb32a7d"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div actguid="d87f2fb00a0001dc077a33e9ef8eb2ba" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fb00a0001dc077a33e9ef8eb2ba&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt05">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader">did I get this</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt05">
+<div class="page 482590" id="opch15_digt05">
+<div class="question" id="482590">
+<div>Which command line tool is used to confirm a PC’s IP address?</div>
+<div class="i1"><span class="component"><input class="medium" id="i1" type="text"/></span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fb00a0001dc077a33e9ef8eb2ba"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2fb00a0001dc077a33e9ef8eb2ba" id="reset-d87f2fb00a0001dc077a33e9ef8eb2ba"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div class="activitywrap purpose checkpoint wbactivity">
+<div class="activityhead">
+<div class="purposeType purposecheckpoint" title=""><span class="scnReader">checkpoint</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity wbactivity" id="N10721">
+<p id="N10726" lang="">Take a minute to stop and reflect on your progress for this learning objective.</p>
+<div actguid="d87f2fb40a0001dc339a7fc089835fe9" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fb40a0001dc339a7fc089835fe9&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap compositeNest flash" id="dpch15_checkpoint3">
+<div class="activityhead">
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_checkpoint3">
+<div class="page 482748" id="opch15_checkpoint3">
+<div class="question" id="482748">
+<div>Do you feel comfortable with this material and ready to move on?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582806_i1_rad_0" name="582806_i1_group" type="radio" value="A"/><label for="582806_i1_rad_0">Yes, I feel confident in my ability to meet this learning objective.</label></span><span class="radioContainer clearfix"><input id="582806_i1_rad_1" name="582806_i1_group" type="radio" value="B"/><label for="582806_i1_rad_1">No, I'd like to see some more material on this learning objective.</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fb40a0001dc339a7fc089835fe9"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2fb40a0001dc339a7fc089835fe9" id="reset-d87f2fb40a0001dc339a7fc089835fe9"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section section-lab" id="N106CF">
+<div class="sectionContain">
+<p id="N106D7" lang=""><span>在本練習中，您應該安全地設置和配置無線路由器。為此，您應該更改默認IP地址，將密碼更改為更安全的密碼，然後配置無線網絡。首先，為局域網設置路由器。將IP地址更改為192.168.10.1，並將DHCP地址範圍更改為192.168.10.50至192.168.10.70。更改路由器密碼，啟用安全性並設置網絡密鑰/密碼。</span></p>
+<p id="N106DA" lang=""><iframe data-mce-fragment="1" frameborder="0" height="680" id="_i_2" src="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/webcontent/configure_wireless_router/index.html" width="810"></iframe></p>
+</div>
+</div>
+<div actguid="d87f2faf0a0001dc69cb03eefdb32a7d" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2faf0a0001dc69cb03eefdb32a7d&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd04">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader"><span><span>通過實踐學習</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd04">
+<div class="page 482520" id="opch15_lbd04">
+<div class="question" id="482520">
+<div><span><span>約翰已要求您在網絡上安裝他的計算機。</span><span>您不需要安裝以下哪些設備來完成他的請求？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582494_i1_rad_0" name="582494_i1_group" type="radio" value="A"/><label for="582494_i1_rad_0"><span><span>網絡接口卡</span></span></label></span><span class="radioContainer clearfix"><input id="582494_i1_rad_1" name="582494_i1_group" type="radio" value="B"/><label for="582494_i1_rad_1"><span><span>AGP適配卡</span></span></label></span><span class="radioContainer clearfix"><input id="582494_i1_rad_2" name="582494_i1_group" type="radio" value="C"/><label for="582494_i1_rad_2"><span><span>無線網卡</span></span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556320" title="點擊提示"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2faf0a0001dc69cb03eefdb32a7d"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2faf0a0001dc69cb03eefdb32a7d" id="reset-d87f2faf0a0001dc69cb03eefdb32a7d"></a><span><span>重置此活動</span></span></div>
+</div>
+</div>
+</div>
+<div actguid="d87f2fb00a0001dc077a33e9ef8eb2ba" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fb00a0001dc077a33e9ef8eb2ba&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt05">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader"><span><span>我得到這個了嗎</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt05">
+<div class="page 482590" id="opch15_digt05">
+<div class="question" id="482590">
+<div><span><span>哪個命令行工具用於確認PC的IP地址？</span></span></div>
+<div class="i1"><span class="component"><input class="medium" id="i1" type="text"/></span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fb00a0001dc077a33e9ef8eb2ba"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2fb00a0001dc077a33e9ef8eb2ba" id="reset-d87f2fb00a0001dc077a33e9ef8eb2ba"></a><span><span>重置此活動</span></span></div>
+</div>
+</div>
+</div>
+<div class="activitywrap purpose checkpoint wbactivity">
+<div class="activityhead">
+<div class="purposeType purposecheckpoint" title=""><span class="scnReader"><span><span>檢查站</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity wbactivity" id="N10721">
+<p id="N10726" lang=""><span><span>花一點時間停下來，為這個學習目標反思自己的進步。</span></span></p>
+<div actguid="d87f2fb40a0001dc339a7fc089835fe9" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fb40a0001dc339a7fc089835fe9&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap compositeNest flash" id="dpch15_checkpoint3">
+<div class="activityhead">
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_checkpoint3">
+<div class="page 482748" id="opch15_checkpoint3">
+<div class="question" id="482748">
+<div>Do you feel comfortable with this material and ready to move on?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582806_i1_rad_0" name="582806_i1_group" type="radio" value="A"/><label for="582806_i1_rad_0">Yes, I feel confident in my ability to meet this learning objective.</label></span><span class="radioContainer clearfix"><input id="582806_i1_rad_1" name="582806_i1_group" type="radio" value="B"/><label for="582806_i1_rad_1">No, I'd like to see some more material on this learning objective.</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fb40a0001dc339a7fc089835fe9"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2fb40a0001dc339a7fc089835fe9" id="reset-d87f2fb40a0001dc339a7fc089835fe9"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <h1>咖波超可愛</h1>
 <p></p>
 <p></p>
+<p></p>
 <p><img alt="咖波" height="608" src="/images/04220b419cb0bf3e0a05f884eea1ea69.jpg" width="1080"/></p>
-<h1>老婆大人</h1>

@@ -1,0 +1,650 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>CMSiMDE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>40923148 cp2020</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">40923148 cp2020</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='First.html'>First</a><li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Develop.html'>Develop</a></li></ul><li class='has-children'><a href='PCH 15  Introduction to Wireless Networking(無線網路簡介).html'>PCH 15  Introduction to Wireless Networking(無線網路簡介)</a><ul class='dropdown'><li class='has-children'><a href='Wireless LANs(無線局域網).html'>Wireless LANs(無線局域網)</a><ul class='dropdown'><li><a href='Overview(總覽).html'>Overview(總覽)</a><li><a href='WLAN Concepts(概念).html'>WLAN Concepts(概念)</a></li></ul><li><a href='Wireless Devices(無線設備).html'>Wireless Devices(無線設備)</a><li class='has-children'><a href='Wireless Standards(無線標準).html'>Wireless Standards(無線標準)</a><ul class='dropdown'><li><a href='Background and History(背景和歷史).html'>Background and History(背景和歷史)</a><li><a href='Speed, Range, and Frequencies(速度，範圍和頻率).html'>Speed, Range, and Frequencies(速度，範圍和頻率)</a><li><a href='Sources of Interference(干擾源).html'>Sources of Interference(干擾源)</a></li></ul><li class='has-children'><a href='Privacy and Security(隱私和安全).html'>Privacy and Security(隱私和安全)</a><ul class='dropdown'><li><a href='1-1.html'>1-1</a><li><a href='Encryption Types(加密類型).html'>Encryption Types(加密類型)</a><li><a href='Wired Equivalent Privacy (WEP) (有線等效保密（WEP）).html'>Wired Equivalent Privacy (WEP) (有線等效保密（WEP）)</a><li><a href='Wi-Fi Protected Access (WPA)(Wi-Fi保護訪問（WPA）).html'>Wi-Fi Protected Access (WPA)(Wi-Fi保護訪問（WPA）)</a><li><a href='Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）).html'>Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）)</a><li><a href='Wi-Fi Protected Access 2 Enterprise(Wi-Fi保護訪問2企業).html'>Wi-Fi Protected Access 2 Enterprise(Wi-Fi保護訪問2企業)</a></li></ul><li class='has-children'><a href='Wireless Networking Types(無線網絡類型).html'>Wireless Networking Types(無線網絡類型)</a><ul class='dropdown'><li><a href='1-2.html'>1-2</a><li><a href='Lab Activity(實驗活動).html'>Lab Activity(實驗活動)</a></li></li></ul></ul><li><a href='咖波超可愛.html'>咖波超可愛</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">Background and History(背景和歷史) << <a href='Background and History(背景和歷史).html'>Previous</a> <a href='Sources of Interference(干擾源).html'>Next</a> >> Sources of Interference(干擾源)<br /><h1>Speed, Range, and Frequencies(速度，範圍和頻率)</h1>
+<div class="section" id="N106AD">
+<div class="sectionContain">
+<p id="N106B4" lang="">Bandwidth speed has been greatly improved through the revisions after 802.11b, as shown in the table below. When discussing data flow and speed, the two terms referred to are bandwidth and throughput. Though they are often used interchangeably, the two terms are different and need to be understood. Simply put, bandwidth is the theoretical maximum of the given standard, whereas throughput is the actual potential in a real-world scenario. Many factors affect actual throughput, such as frequency, channel overlap, and broadcast streams.</p>
+<table align="center" cellspacing="0" class="wbtable" lang="">
+<tbody>
+<tr class="e">
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang="">Revision</em></em></td>
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang="">(Max) Bandwidth</em></em></td>
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang="">Frequency</em></em></td>
+</tr>
+<tr>
+<td align="center" lang="">802.11a</td>
+<td align="center" lang="">54 Mbps</td>
+<td align="center" lang="">3.7/5.0</td>
+</tr>
+<tr class="e">
+<td align="center" lang="">802.11b</td>
+<td align="center" lang="">11 Mbps</td>
+<td align="center" lang="">2.4</td>
+</tr>
+<tr>
+<td align="center" lang="">802.11g</td>
+<td align="center" lang="">54 Mbps</td>
+<td align="center" lang="">2.4</td>
+</tr>
+<tr class="e">
+<td align="center" lang="">802.11n</td>
+<td align="center" lang="">300/600 Mbps</td>
+<td align="center" lang="">2.4/5.0</td>
+</tr>
+<tr>
+<td align="center" lang="">802.11ac</td>
+<td align="center" lang="">1700+ Gbps</td>
+<td align="center" lang="">5.0</td>
+</tr>
+</tbody>
+</table>
+<p id="N10722" lang="">The four wireless standards that are important to focus your studies on are 802.11a, 802.11b, 802.11g, and 802.11n. 802.11a operates in the 5 GHz frequency band, has a maximum bandwidth of 54 Mbps, and has a range of up to 35 meters indoors and 120 meters outdoors. 802.11b operates in the 2.4 GHz frequency band, has a maximum bandwidth of 11 Mbps, and has a range of up to 32 meters indoors and 140 meters outdoors. 802.11g operates in the 2.4 GHz frequency band, has a maximum bandwidth of 54 Mbps, and has a range of up to 32 meters indoors and 140 meters outdoors. 802.11n features a dual-band transceiver, operating in both the 2.4 GHz and 5 GHz frequency bands, has a maximum bandwidth of more than 300 Mbps, and has a range of up to 70 meters indoors and 250 meters outdoors.</p>
+<p id="N10725" lang="">The 2.4 GHz frequency band is more robust than the 5.0 GHz in that it is less susceptible to interference and has a wider distance range. However, many more devices such as RC toys, cordless telephones, other radio devices such as mice and keyboards, and microwave ovens also operate in the 2.4 GHz frequency, so it is more crowded, which can have a negative impact on throughput. Although the 5.0 GHz frequency band is less crowded, it is more susceptible to obstructions such as building infrastructure (i.e., walls, floors, steel beams, etc.) due to absorption.</p>
+<p id="N10728" lang="">Beginning with the 802.11n standard and subsequently moving to the current 802.11ac standard, manufacturers incorporated multiple antennae to achieve higher throughput. Known as multiple-input multiple-output (MIMO), both revisions accomplish the higher throughput by allowing operation at two different channel widths (20 and 40 MHz) within the same frequency and operate on both 2.4 GHz and 5.0 GHz frequency bands at the same time. Wireless N (802.11n) and wireless AC have a much larger bandwidth and maximum range, because they use MIMO and multiple frequency bands working in tandem to increase transmission and reception.</p>
+<p id="N1072B" lang="">An important note is that wireless N, G, and B are all compatible because they all support the 2.4 GHz frequency, allowing for backward compatibility. If you use multiple standards, like B, G, and N devices at the same time on a singular wireless N wireless access point, the WAP will default back to wireless B standards to support each device, which will significantly slow down the network. Wireless N and wireless A are compatible because they both use the 5 GHz frequency band. However, wireless A is<span> </span><em class="italic" lang="">not<span> </span></em>compatible with wireless B or G devices.</p>
+<div actguid="d87f2f970a0001dc466be0dc297ae99c" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f970a0001dc466be0dc297ae99c&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd02">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader">learn by doing</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd02">
+<div class="page 482565 482566" id="opch15_lbd02">
+<div class="question" id="482565">
+<div>Which wireless standard operates at a maximum of 11 Mbps?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582566_i1_rad_0" name="582566_i1_group" type="radio" value="A"/><label for="582566_i1_rad_0">802.11a</label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_1" name="582566_i1_group" type="radio" value="B"/><label for="582566_i1_rad_1">802.11b</label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_2" name="582566_i1_group" type="radio" value="C"/><label for="582566_i1_rad_2">802.11g</label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_3" name="582566_i1_group" type="radio" value="D"/><label for="582566_i1_rad_3">802.11n</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556392" title="Click for hint"></a></div>
+<div class="question" id="482566">
+<div>Which wireless standard operates at a maximum of more than 300 Mbps with channel bonding?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582567_i1_rad_0" name="582567_i1_group" type="radio" value="A"/><label for="582567_i1_rad_0">802.11a</label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_1" name="582567_i1_group" type="radio" value="B"/><label for="582567_i1_rad_1">802.11b</label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_2" name="582567_i1_group" type="radio" value="C"/><label for="582567_i1_rad_2">802.11g</label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_3" name="582567_i1_group" type="radio" value="D"/><label for="582567_i1_rad_3">802.11n</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556393" title="Click for hint"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f970a0001dc466be0dc297ae99c"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f970a0001dc466be0dc297ae99c" id="reset-d87f2f970a0001dc466be0dc297ae99c"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div actguid="d87f2f980a0001dc70b899ce62794a7a" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f980a0001dc70b899ce62794a7a&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt01">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader">did I get this</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt01">
+<div class="page 482557" id="opch15_digt01">
+<div class="question ddfb" id="482557">
+<div>
+<p id="N1006C" lang="">Drag and drop the items to match each standard with its frequency band, bandwidth, and range.</p>
+<div class="customActivityHolder" data-showinputs="false" height="477" id="custom-482557" layout="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/pch15_digt01_layout.xml" source="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/webcontent/DragDropWrapper.js" type="javascript" width="550">
+<div>
+<div class="component">
+<table border="0" cellspacing="4" width="100%">
+<tbody>
+<tr>
+<td><em>Standard</em></td>
+<td><em>Frequency Band</em></td>
+<td><em>Maximum Bandwidth</em></td>
+<td><em>Maximum Range</em></td>
+</tr>
+<tr>
+<td>802.11a</td>
+<td>
+<div class="target" input_ref="target1"></div>
+</td>
+<td>
+<div class="target" input_ref="target2"></div>
+</td>
+<td>
+<div class="target" input_ref="target3"></div>
+</td>
+</tr>
+<tr>
+<td>802.11b</td>
+<td>
+<div class="target" input_ref="target4"></div>
+</td>
+<td>
+<div class="target" input_ref="target5"></div>
+</td>
+<td>
+<div class="target" input_ref="target6"></div>
+</td>
+</tr>
+<tr>
+<td>802.11g</td>
+<td>
+<div class="target" input_ref="target7"></div>
+</td>
+<td>
+<div class="target" input_ref="target8"></div>
+</td>
+<td>
+<div class="target" input_ref="target9"></div>
+</td>
+</tr>
+<tr>
+<td>802.11n</td>
+<td>
+<div class="target" input_ref="target10"></div>
+</td>
+<td>
+<div class="target" input_ref="target11"></div>
+</td>
+<td>
+<div class="target" input_ref="target12"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="input_source">
+<p></p>
+<div class="initiator" input_val="drag3">35 meters indoors, 120 meters outdoors</div>
+<div class="initiator" input_val="drag11">130−150 Mbps (more than 300 Mbps with channel bonding)</div>
+<div class="initiator" input_val="drag12">70 meters indoors, 250 meters outdoors</div>
+<span> </span>
+<div class="initiator" input_val="drag1">5 GHz</div>
+<span> </span>
+<div class="initiator" input_val="drag6">32 meters indoors, 140 meters outdoors</div>
+<div class="initiator" input_val="drag7">2.4 GHz</div>
+<span> </span>
+<div class="initiator" input_val="drag9">32 meters indoors, 140 meters outdoors</div>
+<span> </span>
+<div class="initiator" input_val="drag10">2.4 GHz or 5 GHz</div>
+<span> </span>
+<div class="initiator" input_val="drag5">11 Mbps</div>
+<div class="initiator" input_val="drag2">54 Mbps</div>
+<span> </span>
+<div class="initiator" input_val="drag8">54 Mbps</div>
+<span> </span>
+<div class="initiator" input_val="drag4">2.4 GHz</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f980a0001dc70b899ce62794a7a"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f980a0001dc70b899ce62794a7a" id="reset-d87f2f980a0001dc70b899ce62794a7a"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+<div actguid="d87f2f9c0a0001dc47e3370f1623991c" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f9c0a0001dc47e3370f1623991c&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt02">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader">did I get this</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt02">
+<div class="page 482538" id="opch15_digt02">
+<div class="question" id="482538">
+<div>True or False: Using multiple standards — such as B, G, and N devices — at the same time on a single wireless N wireless access point will significantly slow down the network.</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582518_i1_rad_0" name="582518_i1_group" type="radio" value="A"/><label for="582518_i1_rad_0">True</label></span><span class="radioContainer clearfix"><input id="582518_i1_rad_1" name="582518_i1_group" type="radio" value="B"/><label for="582518_i1_rad_1">False</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f9c0a0001dc47e3370f1623991c"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f9c0a0001dc47e3370f1623991c" id="reset-d87f2f9c0a0001dc47e3370f1623991c"></a>Reset this Activity</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="activitywrap purpose checkpoint wbactivity">
+<div class="activityhead">
+<div class="purposeType purposecheckpoint" title=""><span class="scnReader">checkpoint</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity wbactivity" id="N10791">
+<p id="N10796" lang="">Take a minute to stop and reflect on your progress for this learning objective.</p>
+<div actguid="d87f2f950a0001dc5e96b3d0b5ef31e0" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f950a0001dc5e96b3d0b5ef31e0&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap compositeNest flash" id="dpch15_checkpoint1">
+<div class="activityhead">
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_checkpoint1">
+<div class="page 482802" id="opch15_checkpoint1">
+<div class="question" id="482802">
+<div>Do you feel comfortable with this material and ready to move on?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582880_i1_rad_0" name="582880_i1_group" type="radio" value="A"/><label for="582880_i1_rad_0">Yes, I feel confident in my ability to meet this learning objective.</label></span><span class="radioContainer clearfix"><input id="582880_i1_rad_1" name="582880_i1_group" type="radio" value="B"/><label for="582880_i1_rad_1">No, I'd like to see some more material on this learning objective.</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f950a0001dc5e96b3d0b5ef31e0"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f950a0001dc5e96b3d0b5ef31e0" id="reset-d87f2f950a0001dc5e96b3d0b5ef31e0"></a>Reset this Activity</div>
+<div class="pageControls clearfix"></div>
+<div class="pageControls clearfix">
+<div class="section" id="N106AD">
+<div class="sectionContain">
+<p id="N106B4" lang=""><span>如下表所示，通過802.11b的修訂，帶寬速度得到了極大的提高。在討論數據流和速度時，所指的兩個術語是帶寬和吞吐量。儘管它們經常互換使用，但這兩個術語是不同的，需要理解。簡而言之，帶寬是給定標準的理論最大值，而吞吐量是實際情況下的實際潛力。許多因素都會影響實際的吞吐量，例如頻率，頻道重疊和廣播流。</span></p>
+<table align="center" cellspacing="0" class="wbtable" lang="">
+<tbody>
+<tr class="e">
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang=""><span>修訂版</span></em></em></td>
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang=""><span>（最大）帶寬</span></em></em></td>
+<td align="center" lang=""><em class="italic" lang=""><em class="bold" lang=""><span>頻率</span></em></em></td>
+</tr>
+<tr>
+<td align="center" lang=""><span>802.11a</span></td>
+<td align="center" lang=""><span>54 Mbps</span></td>
+<td align="center" lang=""><span>3.7 / 5.0</span></td>
+</tr>
+<tr class="e">
+<td align="center" lang=""><span>802.11b</span></td>
+<td align="center" lang=""><span>11 Mbps</span></td>
+<td align="center" lang=""><span>2.4</span></td>
+</tr>
+<tr>
+<td align="center" lang=""><span>802.11g</span></td>
+<td align="center" lang=""><span>54 Mbps</span></td>
+<td align="center" lang=""><span>2.4</span></td>
+</tr>
+<tr class="e">
+<td align="center" lang=""><span>802.11n</span></td>
+<td align="center" lang=""><span>300/600 Mbps</span></td>
+<td align="center" lang=""><span>2.4 / 5.0</span></td>
+</tr>
+<tr>
+<td align="center" lang=""><span>802.11ac</span></td>
+<td align="center" lang=""><span>1700+ Gbps</span></td>
+<td align="center" lang=""><span>5.0</span></td>
+</tr>
+</tbody>
+</table>
+<p id="N10722" lang=""><span>專注於研究的四個無線標準是802.11a，802.11b，802.11g和802.11n。802.11a工作在5 GHz頻段，最大帶寬為54 Mbps，室內的最大距離為35米，室外的最大距離為120米。802.11b工作在2.4 GHz頻段，最大帶寬為11 Mbps，室內最大範圍為32米，室外最大範圍為140米。802.11g工作在2.4 GHz頻段，最大帶寬為54 Mbps，室內最大範圍為32米，室外最大範圍為140米。802.11n具有工作在2.4 GHz和5 GHz頻帶上的雙頻收發器，最大帶寬超過300 Mbps，室內最大範圍為70米，室外最大範圍為250米。</span></p>
+<p id="N10725" lang=""><span>2.4 GHz頻段比5.0 GHz更加健壯，因為它不易受到干擾，並且距離範圍更廣。但是，更多的設備（例如RC玩具，無繩電話，其他無線電設備（例如，鼠標和鍵盤）和微波爐）也以2.4 GHz頻率運行，因此擁擠不堪，這可能會對吞吐量產生負面影響。儘管5.0 GHz頻帶的擁擠程度較小，但是由於吸收，它更容易受到諸如建築基礎設施（例如，牆壁，地板，鋼樑等）的障礙物的影響。</span></p>
+<p id="N10728" lang=""><span>從802.11n標准開始，然後發展到當前的802.11ac標準，製造商採用了多個天線來實現更高的吞吐量。這兩種版本都稱為多輸入多輸出（MIMO），通過允許在同一頻率內在兩個不同的信道寬度（20和40 MHz）下運行，並在2.4 GHz和5.0 GHz頻段上同時運行，從而實現了更高的吞吐量。時間。無線N（802.11n）和無線AC具有更大的帶寬和最大範圍，因為它們使用MIMO和多個頻段協同工作以增加傳輸和接收。</span></p>
+<p id="N1072B" lang=""><span>重要說明是無線N，G和B都兼容，因為它們都支持2.4 GHz頻率，從而實現了向後兼容性。如果您在單個無線N無線接入點上同時使用多個標準，例如B，G和N設備，則WAP將默認恢復為無線B標準以支持每個設備，這將大大降低網絡速度。無線N和無線A兼容，因為它們都使用5 GHz頻帶。但是，無線A與無線B或G設備</span><em class="italic" lang=""><span>不</span></em><span>兼容。</span></p>
+<div actguid="d87f2f970a0001dc466be0dc297ae99c" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f970a0001dc466be0dc297ae99c&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd02">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader"><span>通過實踐學習</span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd02">
+<div class="page 482565 482566" id="opch15_lbd02">
+<div class="question" id="482565">
+<div><span>哪個無線標準以最高11 Mbps的速度運行？</span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582566_i1_rad_0" name="582566_i1_group" type="radio" value="A"/><label for="582566_i1_rad_0"><span>802.11a</span></label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_1" name="582566_i1_group" type="radio" value="B"/><label for="582566_i1_rad_1"><span>802.11b</span></label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_2" name="582566_i1_group" type="radio" value="C"/><label for="582566_i1_rad_2"><span>802.11g</span></label></span><span class="radioContainer clearfix"><input id="582566_i1_rad_3" name="582566_i1_group" type="radio" value="D"/><label for="582566_i1_rad_3"><span>802.11n</span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556392" title="點擊提示"></a></div>
+<div class="question" id="482566">
+<div><span>哪種無線標准通過通道綁定可以以最高300 Mbps的速度運行？</span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582567_i1_rad_0" name="582567_i1_group" type="radio" value="A"/><label for="582567_i1_rad_0"><span>802.11a</span></label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_1" name="582567_i1_group" type="radio" value="B"/><label for="582567_i1_rad_1"><span>802.11b</span></label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_2" name="582567_i1_group" type="radio" value="C"/><label for="582567_i1_rad_2"><span>802.11g</span></label></span><span class="radioContainer clearfix"><input id="582567_i1_rad_3" name="582567_i1_group" type="radio" value="D"/><label for="582567_i1_rad_3"><span>802.11n</span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556393" title="點擊提示"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f970a0001dc466be0dc297ae99c"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f970a0001dc466be0dc297ae99c" id="reset-d87f2f970a0001dc466be0dc297ae99c"></a><span>重置此活動</span></div>
+</div>
+</div>
+</div>
+<div actguid="d87f2f980a0001dc70b899ce62794a7a" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f980a0001dc70b899ce62794a7a&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt01">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader"><span>我得到這個了嗎</span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt01">
+<div class="page 482557" id="opch15_digt01">
+<div class="question ddfb" id="482557">
+<div>
+<p id="N1006C" lang=""><span>拖放項目以使其符合每個標準的頻段，帶寬和範圍。</span></p>
+<div class="customActivityHolder" data-showinputs="false" height="477" id="custom-482557" layout="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/pch15_digt01_layout.xml" source="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/webcontent/DragDropWrapper.js" type="javascript" width="550">
+<div>
+<div class="component">
+<table border="0" cellspacing="4" width="100%">
+<tbody>
+<tr>
+<td><em><span>標準</span></em></td>
+<td><em><span>頻帶</span></em></td>
+<td><em><span>最大帶寬</span></em></td>
+<td><em><span>最大範圍</span></em></td>
+</tr>
+<tr>
+<td><span>802.11a</span></td>
+<td>
+<div class="target" input_ref="target1"></div>
+</td>
+<td>
+<div class="target" input_ref="target2"></div>
+</td>
+<td>
+<div class="target" input_ref="target3"></div>
+</td>
+</tr>
+<tr>
+<td><span>802.11b</span></td>
+<td>
+<div class="target" input_ref="target4"></div>
+</td>
+<td>
+<div class="target" input_ref="target5"></div>
+</td>
+<td>
+<div class="target" input_ref="target6"></div>
+</td>
+</tr>
+<tr>
+<td><span>802.11g</span></td>
+<td>
+<div class="target" input_ref="target7"></div>
+</td>
+<td>
+<div class="target" input_ref="target8"></div>
+</td>
+<td>
+<div class="target" input_ref="target9"></div>
+</td>
+</tr>
+<tr>
+<td><span>802.11n</span></td>
+<td>
+<div class="target" input_ref="target10"></div>
+</td>
+<td>
+<div class="target" input_ref="target11"></div>
+</td>
+<td>
+<div class="target" input_ref="target12"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="input_source">
+<p></p>
+<div class="initiator" input_val="drag3"><span>室內35米，室外120米</span></div>
+<span> </span>
+<div class="initiator" input_val="drag11"><span>130−150 Mbps（使用通道綁定時超過300 Mbps）</span></div>
+<div class="initiator" input_val="drag12"><span>室內70米，室外250米</span></div>
+<span> </span>
+<div class="initiator" input_val="drag1"><span>5 GHz的</span></div>
+<span> </span>
+<div class="initiator" input_val="drag6"><span>室內32米，室外140米</span></div>
+<span> </span>
+<div class="initiator" input_val="drag7"><span>2.4 GHz</span></div>
+<div class="initiator" input_val="drag9"><span>室內32米，室外140米</span></div>
+<span> </span>
+<div class="initiator" input_val="drag10"><span>2.4 GHz或5 GHz</span></div>
+<span> </span>
+<div class="initiator" input_val="drag5"><span>11 Mbps</span></div>
+<span> </span>
+<div class="initiator" input_val="drag2"><span>54 Mbps</span></div>
+<span> </span>
+<div class="initiator" input_val="drag8"><span>54 Mbps</span></div>
+<span> </span>
+<div class="initiator" input_val="drag4"><span>2.4 GHz</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f980a0001dc70b899ce62794a7a"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f980a0001dc70b899ce62794a7a" id="reset-d87f2f980a0001dc70b899ce62794a7a"></a><span>重置此活動</span></div>
+</div>
+</div>
+</div>
+<div actguid="d87f2f9c0a0001dc47e3370f1623991c" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f9c0a0001dc47e3370f1623991c&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt02">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader"><span>我得到這個了嗎</span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt02">
+<div class="page 482538" id="opch15_digt02">
+<div class="question" id="482538">
+<div><span>是非題：在單個無線N無線接入點上同時使用多個標準（例如B，G和N設備）將大大降低網絡速度。</span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582518_i1_rad_0" name="582518_i1_group" type="radio" value="A"/><label for="582518_i1_rad_0"><span>真正</span></label></span><span class="radioContainer clearfix"><input id="582518_i1_rad_1" name="582518_i1_group" type="radio" value="B"/><label for="582518_i1_rad_1"><span>假</span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f9c0a0001dc47e3370f1623991c"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f9c0a0001dc47e3370f1623991c" id="reset-d87f2f9c0a0001dc47e3370f1623991c"></a><span>重置此活動</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="activitywrap purpose checkpoint wbactivity">
+<div class="activityhead">
+<div class="purposeType purposecheckpoint" title=""><span class="scnReader"><span><span>檢查站</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity wbactivity" id="N10791">
+<p id="N10796" lang=""><span><span>花一點時間停下來，為這個學習目標反思自己的進步。</span></span></p>
+<div class="activityhead">
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_checkpoint1">
+<div class="page 482802" id="opch15_checkpoint1">
+<div class="question" id="482802">
+<div><span><span>您對這種材料感到滿意並準備繼續前進嗎？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582880_i1_rad_0" name="582880_i1_group" type="radio" value="A"/><label for="582880_i1_rad_0"><span><span>是的，我對實現這一學習目標的能力充滿信心。</span></span></label></span><span class="radioContainer clearfix"><input id="582880_i1_rad_1" name="582880_i1_group" type="radio" value="B"/><label for="582880_i1_rad_1"><span><span>不，我想了解有關此學習目標的更多材料。</span></span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f950a0001dc5e96b3d0b5ef31e0"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f950a0001dc5e96b3d0b5ef31e0" id="reset-d87f2f950a0001dc5e96b3d0b5ef31e0"></a><span><span>重置此活動</span></span></div>
+<div class="pageControls clearfix"><span><span></span></span></div>
+<br />Background and History(背景和歷史) << <a href='Background and History(背景和歷史).html'>Previous</a> <a href='Sources of Interference(干擾源).html'>Next</a> >> Sources of Interference(干擾源)</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        

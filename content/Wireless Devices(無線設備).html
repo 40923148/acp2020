@@ -1,0 +1,247 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>CMSiMDE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>40923148 cp2020</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">40923148 cp2020</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='First.html'>First</a><li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Develop.html'>Develop</a></li></ul><li class='has-children'><a href='PCH 15  Introduction to Wireless Networking(無線網路簡介).html'>PCH 15  Introduction to Wireless Networking(無線網路簡介)</a><ul class='dropdown'><li class='has-children'><a href='Wireless LANs(無線局域網).html'>Wireless LANs(無線局域網)</a><ul class='dropdown'><li><a href='Overview(總覽).html'>Overview(總覽)</a><li><a href='WLAN Concepts(概念).html'>WLAN Concepts(概念)</a></li></ul><li><a href='Wireless Devices(無線設備).html'>Wireless Devices(無線設備)</a><li class='has-children'><a href='Wireless Standards(無線標準).html'>Wireless Standards(無線標準)</a><ul class='dropdown'><li><a href='Background and History(背景和歷史).html'>Background and History(背景和歷史)</a><li><a href='Speed, Range, and Frequencies(速度，範圍和頻率).html'>Speed, Range, and Frequencies(速度，範圍和頻率)</a><li><a href='Sources of Interference(干擾源).html'>Sources of Interference(干擾源)</a></li></ul><li class='has-children'><a href='Privacy and Security(隱私和安全).html'>Privacy and Security(隱私和安全)</a><ul class='dropdown'><li><a href='1-1.html'>1-1</a><li><a href='Encryption Types(加密類型).html'>Encryption Types(加密類型)</a><li><a href='Wired Equivalent Privacy (WEP) (有線等效保密（WEP）).html'>Wired Equivalent Privacy (WEP) (有線等效保密（WEP）)</a><li><a href='Wi-Fi Protected Access (WPA)(Wi-Fi保護訪問（WPA）).html'>Wi-Fi Protected Access (WPA)(Wi-Fi保護訪問（WPA）)</a><li><a href='Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）).html'>Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）)</a><li><a href='Wi-Fi Protected Access 2 Enterprise(Wi-Fi保護訪問2企業).html'>Wi-Fi Protected Access 2 Enterprise(Wi-Fi保護訪問2企業)</a></li></ul><li class='has-children'><a href='Wireless Networking Types(無線網絡類型).html'>Wireless Networking Types(無線網絡類型)</a><ul class='dropdown'><li><a href='1-2.html'>1-2</a><li><a href='Lab Activity(實驗活動).html'>Lab Activity(實驗活動)</a></li></li></ul></ul><li><a href='咖波超可愛.html'>咖波超可愛</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">WLAN Concepts(概念) << <a href='WLAN Concepts(概念).html'>Previous</a> <a href='Wireless Standards(無線標準).html'>Next</a> >> Wireless Standards(無線標準)<br /><h1>Wireless Devices(無線設備)</h1>
+<p id="N10680" lang="">As previously stated, most wireless networks utilize infrastructure mode and make use of a wireless router or wireless access point to connect the multitude of wireless devices in a given network. A wireless router is used in most small office/home office (SOHO) networks. These devices combine a router, a switch, and a wireless access point and serve as a base station and gateway for the wireless devices. The wireless router allows the wireless devices to communicate with each other using its wireless access point and switch functionality, and then uses its router functionality to connect devices to the remote network: in most cases, the Internet. The wireless router often combines multiple devices into a single, small device. These features include a wireless access point (WAP), a switch, a router, a firewall, and a modem (either cable, fiber, or DSL depending on the Internet service provider).</p>
+<p id="N10683" lang="">Wireless access points, which are integrated into SOHO wireless routers, can also be purchased as standalone units. These are most often seen in corporate environments as part of an enterprise network. A wireless access point enables a wired LAN to communicate with a wireless LAN. The standalone WAP does not interconnect the two networks, though, since it is not a router. A WAP is simply a physical device that converts the radio frequency into 1s and 0s that are easily understood by the physical switch. Note that all wireless devices and the devices on the wired LAN are seen as a single subnet in a standard network. A WAP operates like a hub, broadcasting all the information it receives over the radio frequency waves and relying on the connected devices to only listen to their own traffic.</p>
+<div class="imagewrap"><span class="image"><img alt="Picture of a wireless router plugged into the wall. The device is silver and black with a short antenna. There are four green illuminated indicator lights labeled power, status, WAN, and WLAN. There is a section labeled “local network,” with the numbers 1, 2, 3, and 4, and an area labeled “phone.” A logo says “powered by D-Link.”" class="popimg" id="_i_0" onclick="loadImageFromPage(this);" src="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/PCH15/image1.jpeg" title="Picture of a wireless router plugged into the wall. The device is silver and black with a short antenna. There are four green illuminated indicator lights labeled power, status, WAN, and WLAN. There is a section labeled “local network,” with the numbers 1, 2, 3, and 4, and an area labeled “phone.” A logo says “powered by D-Link.”"/></span>
+<p id="N1068B" lang="">Kyocera KR1 Mobile EV-DO router. Photo used under CC-BY-NC license from<span> </span><a href="https://www.flickr.com/photos/laughingsquid/" id="_i_1" lang="" target="_blank">Scott Beale</a>.</p>
+</div>
+<p id="N10693" lang="">Wireless network interface cards (NICs) for WiFi, Bluetooth, and infrared are generally integrated into motherboard circuitry. If your computer doesn’t have one built in, you have the ability to add one either using an external USB wireless network adapter, or installing one in a PCIe expansion slot; just remember to install the appropriate drivers for your operating system to enable proper operations.</p>
+<div actguid="d87f2f940a0001dc6c63d5ea3676a176" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f940a0001dc6c63d5ea3676a176&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd01">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader">learn by doing</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd01">
+<div class="page 482548" id="opch15_lbd01">
+<div class="question" id="482548">
+<div>Rusty has been hired by the Smiths to create a wireless smart home. Rusty has purchased outlets and light bulbs that communicate wirelessly and can be controlled remotely. Which of the following devices should Rusty purchase to best connect the outlets and light bulbs to the wireless network?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582528_i1_rad_0" name="582528_i1_group" type="radio" value="A"/><label class="" for="582528_i1_rad_0">Modem</label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_1" name="582528_i1_group" type="radio" value="B"/><label class="" for="582528_i1_rad_1">Switch</label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_2" name="582528_i1_group" type="radio" value="C"/><label class="" for="582528_i1_rad_2">Router</label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_3" name="582528_i1_group" type="radio" value="D"/><label class="incorrectPrimary" for="582528_i1_rad_3">Cable</label></span></div>
+<div class="feedback clearfix incorrect"><span class="icon"></span>
+<div class="response">Incorrect. A router can provide a wireless access point and connect the wireless light bulbs and outlets to the network.</div>
+<span class="xBtn">x</span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556354" title="Click for hint"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f940a0001dc6c63d5ea3676a176"><a alt="Click to reset all Hints, Feedback, and answers for this activity." class="btnReset" contextguids="d87f2f940a0001dc6c63d5ea3676a176" id="reset-d87f2f940a0001dc6c63d5ea3676a176"></a>Reset this Activity</div>
+<div class="pageControls clearfix"></div>
+<div class="pageControls clearfix">
+<p id="N10680" lang=""><span>如前所述，大多數無線網絡都利用基礎架構模式，並利用無線路由器或無線接入點來連接給定網絡中的眾多無線設備。在大多數小型辦公室/家庭辦公室（SOHO）網絡中使用無線路由器。這些設備將路由器，交換機和無線接入點結合在一起，並充當無線設備的基站和網關。無線路由器允許無線設備使用其無線接入點和交換機功能相互通信，然後使用其路由器功能將設備連接到遠程網絡：在大多數情況下為Internet。無線路由器通常將多個設備組合為一個小型設備。這些功能包括無線訪問點（WAP），交換機，路由器，防火牆和調製解調器（電纜，光纖，</span></p>
+<p id="N10683" lang=""><span><span>集成到SOHO無線路由器中的無線訪問點也可以作為獨立單元購買。</span><span>這些通常在公司環境中被視為企業網絡的一部分。</span><span>無線訪問點使有線局域網能夠與無線局域網進行通信。</span><span>但是，獨立的WAP無法將兩個網絡互連，因為它不是路由器。</span><span>WAP只是將無線電頻率轉換為1和0的物理設備，物理交換機很容易理解。</span><span>請注意，所有無線設備和有線LAN上的設備在標準網絡中都被視為單個子網。</span><span>WAP就像集線器一樣工作，它會通過射頻波廣播接收到的所有信息，並依靠連接的設備僅監聽其自身的流量。</span></span></p>
+<div class="imagewrap"><span class="image"><img alt="無線路由器插入牆壁的圖片。 該設備為銀色和黑色，天線較短。 有四個標記為電源，狀態，WAN和WLAN的綠色點亮的指示燈。 有一個標有“本地網絡”的部分，其中有數字1、2、3和4，還有一個標有“電話”的區域。 徽標上寫著“由D-Link供電”。" class="popimg" id="_i_0" onclick="loadImageFromPage(this);" src="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/webcontent/PCH15/image1.jpeg" title="無線路由器插入牆壁的圖片。 該設備為銀色和黑色，天線較短。 有四個標記為電源，狀態，WAN和WLAN的綠色點亮的指示燈。 有一個標有“本地網絡”的部分，其中有數字1、2、3和4，還有一個標有“電話”的區域。 徽標上寫著“由D-Link供電”。"/></span>
+<p id="N1068B" lang=""><span><span>京瓷KR1移動式EV-DO路由器。</span><span>照片由</span></span><a href="https://www.flickr.com/photos/laughingsquid/" id="_i_1" lang="" target="_blank"><span><span>Scott Beale</span></span></a><span><span>根據CC-BY-NC許可使用</span><span>。</span></span></p>
+</div>
+<p id="N10693" lang=""><span><span>用於WiFi，藍牙和紅外的無線網絡接口卡（NIC）通常集成在主板電路中。</span><span>如果您的計算機沒有內置的適配器，則可以使用外部USB無線網絡適配器添加一個適配器，也可以在PCIe擴展插槽中安裝一個適配器。</span><span>只需記住為您的操作系統安裝適當的驅動程序即可啟用正確的操作。</span></span></p>
+<div actguid="d87f2f940a0001dc6c63d5ea3676a176" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2f940a0001dc6c63d5ea3676a176&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd01">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader"><span><span>通過實踐學習</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd01">
+<div class="page 482548" id="opch15_lbd01">
+<div class="question" id="482548">
+<div><span><span>Smiths僱用Rusty來創建無線智能家居。</span><span>Rusty購買了可以無線通訊並可以遠程控制的插座和燈泡。</span><span>Rusty應該購買以下哪些設備來最好地將插座和燈泡連接到無線網絡？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582528_i1_rad_0" name="582528_i1_group" type="radio" value="A"/><label class="" for="582528_i1_rad_0"><span><span>調製解調器</span></span></label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_1" name="582528_i1_group" type="radio" value="B"/><label class="" for="582528_i1_rad_1"><span><span>開關</span></span></label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_2" name="582528_i1_group" type="radio" value="C"/><label class="correctPrimary" for="582528_i1_rad_2"><span><span>路由器</span></span></label></span><span class="radioContainer clearfix"><input id="582528_i1_rad_3" name="582528_i1_group" type="radio" value="D"/><label class="" for="582528_i1_rad_3"><span><span>電纜</span></span></label></span></div>
+<div class="feedback clearfix correct"><span class="icon"></span>
+<div class="response"><span><span>正確。</span><span>路由器可以提供無線訪問點，並將無線燈泡和插座連接到網絡。</span></span></div>
+<span class="xBtn"><span><span>X</span></span></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556354" title="點擊提示"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2f940a0001dc6c63d5ea3676a176"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2f940a0001dc6c63d5ea3676a176" id="reset-d87f2f940a0001dc6c63d5ea3676a176"></a><span><span>重置此活動</span></span></div>
+<br />WLAN Concepts(概念) << <a href='WLAN Concepts(概念).html'>Previous</a> <a href='Wireless Standards(無線標準).html'>Next</a> >> Wireless Standards(無線標準)</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
