@@ -1,0 +1,342 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>CMSiMDE</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container-fluid">
+                <div class="row align-items-center">
+                <h1>40923148 cp2020</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">40923148 cp2020</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">Site Map</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='首頁.html'>首頁</a><li><a href='第一組.html'>第一組</a><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='PCH 15  Introduction to Wireless Networking(無線網路簡介).html'>PCH 15  Introduction to Wireless Networking(無線網路簡介)</a><li class='has-children'><a href='Wireless LANs(無線局域網).html'>Wireless LANs(無線局域網)</a><ul class='dropdown'><li><a href='Overview(總覽).html'>Overview(總覽)</a><li><a href='WLAN Concepts(概念).html'>WLAN Concepts(概念)</a></li></ul><li><a href='Wireless Devices(無線設備).html'>Wireless Devices(無線設備)</a><li class='has-children'><a href='Wireless Standards(無線標準).html'>Wireless Standards(無線標準)</a><ul class='dropdown'><li><a href='Background and History(背景和歷史).html'>Background and History(背景和歷史)</a><li><a href='Speed, Range, and Frequencies(速度，範圍和頻率).html'>Speed, Range, and Frequencies(速度，範圍和頻率)</a><li><a href='Sources of Interference(干擾源).html'>Sources of Interference(干擾源)</a></li></ul><li class='has-children'><a href='Privacy and Security(隱私和安全).html'>Privacy and Security(隱私和安全)</a><ul class='dropdown'><li><a href='1-1.html'>1-1</a><li><a href='Encryption Types(加密類型).html'>Encryption Types(加密類型)</a><li><a href='Wired Equivalent Privacy (WEP) (有線等效保密（WEP）).html'>Wired Equivalent Privacy (WEP) (有線等效保密（WEP）)</a><li><a href='Wi-Fi Protected Access (WPA)(Wi-Fi保護訪問（WPA）).html'>Wi-Fi Protected Access (WPA)(Wi-Fi保護訪問（WPA）)</a><li><a href='Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）).html'>Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）)</a><li><a href='Wi-Fi Protected Access 2 Enterprise(Wi-Fi保護訪問2企業).html'>Wi-Fi Protected Access 2 Enterprise(Wi-Fi保護訪問2企業)</a></li></ul><li class='has-children'><a href='Wireless Networking Types(無線網絡類型).html'>Wireless Networking Types(無線網絡類型)</a><ul class='dropdown'><li><a href='1-2.html'>1-2</a><li><a href='Lab Activity(實驗活動).html'>Lab Activity(實驗活動)</a></li></li></ul></ul><li><a href='python variable.html'>python variable</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）) << <a href='Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）).html'>Previous</a> <a href='Wireless Networking Types(無線網絡類型).html'>Next</a> >> Wireless Networking Types(無線網絡類型)<br /><h1>Wi-Fi Protected Access 2 Enterprise(Wi-Fi保護訪問2企業)</h1>
+<div class="section" id="N106D8">
+<div class="sectionContain">
+<p id="N106DF" lang="">WPA2 enterprise is a client/server model using the remote authentication dial-in user service (RADIUS) protocol found in larger corporate networks. The RADIUS server runs in the application layer using UDP (user datagram protocol) as a transport method, and is usually a software background service running on a UNIX or Windows server. WPA2 enterprise eliminates a shared key and replaces it with a username and a password to connect to the corporate Wi-Fi network.</p>
+<p id="N106E2" lang="">Click<span> here</span><span> </span>to access a table of 802.11 wireless networking standards.</p>
+</div>
+</div>
+<div actguid="d87f2fa10a0001dc0ebd5d384ea39307" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa10a0001dc0ebd5d384ea39307&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd03">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader">learn by doing</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd03">
+<div class="page 482493 482494" id="opch15_lbd03">
+<div class="question" id="482493">
+<div>Pat needs to secure a wireless network. Which of the following types of password protection/encryption should Pat choose to make the network the most secure?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582465_i1_rad_0" name="582465_i1_group" type="radio" value="A"/><label for="582465_i1_rad_0">WEP</label></span><span class="radioContainer clearfix"><input id="582465_i1_rad_1" name="582465_i1_group" type="radio" value="B"/><label for="582465_i1_rad_1">WPA</label></span><span class="radioContainer clearfix"><input id="582465_i1_rad_2" name="582465_i1_group" type="radio" value="C"/><label for="582465_i1_rad_2">WPA2</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556291" title="Click for hint"></a></div>
+<div class="question" id="482494">
+<div>True or False: Because it uses 128-bit key encryption, WPA2 is more secure and a strong password is not needed for WPA2.</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582466_i1_rad_0" name="582466_i1_group" type="radio" value="A"/><label for="582466_i1_rad_0">True</label></span><span class="radioContainer clearfix"><input id="582466_i1_rad_1" name="582466_i1_group" type="radio" value="B"/><label for="582466_i1_rad_1">False</label></span></div>
+</div>
+<a alt="Click for hint" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556292" title="Click for hint"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa10a0001dc0ebd5d384ea39307"></div>
+</div>
+</div>
+</div>
+<div actguid="d87f2fa30a0001dc3210d9a0e5c2ddb4" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa30a0001dc3210d9a0e5c2ddb4&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt03">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader">did I get this</span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt03">
+<div class="page 482592 482593" id="opch15_digt03">
+<div class="question" id="482592">
+<div>True or False: WEP uses AES-based encryption.</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582604_i1_rad_0" name="582604_i1_group" type="radio" value="A"/><label for="582604_i1_rad_0">True</label></span><span class="radioContainer clearfix"><input id="582604_i1_rad_1" name="582604_i1_group" type="radio" value="B"/><label for="582604_i1_rad_1">False</label></span></div>
+</div>
+</div>
+<div class="question" id="482593">
+<div>802.11 standards provide what types of password protection/encryption?</div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582605_i1_rad_0" name="582605_i1_group" type="radio" value="A"/><label for="582605_i1_rad_0">WEP</label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_1" name="582605_i1_group" type="radio" value="B"/><label for="582605_i1_rad_1">WPA</label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_2" name="582605_i1_group" type="radio" value="C"/><label for="582605_i1_rad_2">WPA2</label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_3" name="582605_i1_group" type="radio" value="D"/><label for="582605_i1_rad_3">All of the above</label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa30a0001dc3210d9a0e5c2ddb4"></div>
+</div>
+</div>
+</div>
+<div class="section" id="N106D8">
+<div class="sectionContain">
+<p id="N106DF" lang=""><span>WPA2企業版是使用大型企業網絡中使用的遠程身份驗證撥入用戶服務（RADIUS）協議的客戶端/服務器模型。RADIUS服務器使用UDP（用戶數據報協議）作為傳輸方法在應用程序層中運行，並且通常是在UNIX或Windows服務器上運行的軟件後台服務。WPA2企業消除了共享密鑰，並用用戶名和密碼代替了共享密鑰以連接到公司的Wi-Fi網絡。</span></p>
+<p id="N106E2" lang=""><span>單擊此處</span><span>以訪問802.11無線網絡標準表。</span></p>
+</div>
+</div>
+<div actguid="d87f2fa10a0001dc0ebd5d384ea39307" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa10a0001dc0ebd5d384ea39307&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose learnbydoing flash" id="dpch15_lbd03">
+<div class="activityhead">
+<div class="purposeType purposelearnbydoing" title=""><span class="scnReader"><span><span>通過實踐學習</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_lbd03">
+<div class="page 482493 482494" id="opch15_lbd03">
+<div class="question" id="482493">
+<div><span><span>Pat需要保護無線網絡。</span><span>Pat應該選擇以下哪種類型的密碼保護/加密方式來使網絡最安全？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582465_i1_rad_0" name="582465_i1_group" type="radio" value="A"/><label for="582465_i1_rad_0"><span><span>WEP</span></span></label></span><span class="radioContainer clearfix"><input id="582465_i1_rad_1" name="582465_i1_group" type="radio" value="B"/><label for="582465_i1_rad_1"><span><span>WPA</span></span></label></span><span class="radioContainer clearfix"><input id="582465_i1_rad_2" name="582465_i1_group" type="radio" value="C"/><label for="582465_i1_rad_2"><span><span>WPA2</span></span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556291" title="點擊提示"></a></div>
+<div class="question" id="482494">
+<div><span><span>是非題：因為WPA2使用128位密鑰加密，所以它更加安全，WPA2不需要強密碼。</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582466_i1_rad_0" name="582466_i1_group" type="radio" value="A"/><label for="582466_i1_rad_0"><span><span>真正</span></span></label></span><span class="radioContainer clearfix"><input id="582466_i1_rad_1" name="582466_i1_group" type="radio" value="B"/><label for="582466_i1_rad_1"><span><span>假</span></span></label></span></div>
+</div>
+<a alt="點擊提示" class="fa iconHint" href="https://oli.cmu.edu/repository/webcontent/d826575d0a0001dc3e9f244fa018c560/PCH15/x-oli-workbook_page/javascript();" rel="556292" title="點擊提示"></a></div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa10a0001dc0ebd5d384ea39307"></div>
+</div>
+</div>
+</div>
+<div actguid="d87f2fa30a0001dc3210d9a0e5c2ddb4" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa30a0001dc3210d9a0e5c2ddb4&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap purpose didigetthis flash" id="dpch15_digt03">
+<div class="activityhead">
+<div class="purposeType purposedidigetthis" title=""><span class="scnReader"><span><span>我得到這個了嗎</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_digt03">
+<div class="page 482592 482593" id="opch15_digt03">
+<div class="question" id="482592">
+<div><span><span>是非題：WEP使用基於AES的加密。</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582604_i1_rad_0" name="582604_i1_group" type="radio" value="A"/><label for="582604_i1_rad_0"><span><span>真正</span></span></label></span><span class="radioContainer clearfix"><input id="582604_i1_rad_1" name="582604_i1_group" type="radio" value="B"/><label for="582604_i1_rad_1"><span><span>假</span></span></label></span></div>
+</div>
+</div>
+<div class="question" id="482593">
+<div><span><span>802.11標準提供什麼類型的密碼保護/加密？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582605_i1_rad_0" name="582605_i1_group" type="radio" value="A"/><label for="582605_i1_rad_0"><span><span>WEP</span></span></label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_1" name="582605_i1_group" type="radio" value="B"/><label for="582605_i1_rad_1"><span><span>WPA</span></span></label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_2" name="582605_i1_group" type="radio" value="C"/><label for="582605_i1_rad_2"><span><span>WPA2</span></span></label></span><span class="radioContainer clearfix"><input id="582605_i1_rad_3" name="582605_i1_group" type="radio" value="D"/><label for="582605_i1_rad_3"><span><span>上述所有的</span></span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa30a0001dc3210d9a0e5c2ddb4"></div>
+</div>
+</div>
+</div>
+<div class="activitywrap purpose checkpoint wbactivity">
+<div class="activityhead">
+<div class="purposeType purposecheckpoint" title=""><span class="scnReader"><span><span>檢查站</span></span></span></div>
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity wbactivity" id="N1072A">
+<p id="N1072F" lang=""><span><span>花一點時間停下來，為這個學習目標反思自己的進步。</span></span></p>
+<div actguid="d87f2fa60a0001dc2f08216313c3e429" class="asx" inlineparams="inlineClient=%2Fsuperactivity%2Fassessment2%2FInlineAssessmentClient.swf&amp;activityMode=delivery&amp;activityContextGUID=d87f2fa60a0001dc2f08216313c3e429&amp;userGUID=40923148%40gm.nfu.edu.tw&amp;activityService=%2Fjcourse%2Fa2%2Frest&amp;webContentPath=%2Frepository%2Fwebcontent%2Fd826575d0a0001dc3e9f244fa018c560%2F&amp;logService=%2Flog%2Fserver&amp;">
+<div class="activitywrap compositeNest flash" id="dpch15_checkpoint2">
+<div class="activityhead">
+<div class="activityinfo"></div>
+</div>
+<div class="actContain">
+<div class="activity flash">
+<div class="flash_obj asx testFlash" id="pch15_checkpoint2">
+<div class="page 482813" id="opch15_checkpoint2">
+<div class="question" id="482813">
+<div><span><span>您對這種材料感到滿意並準備繼續前進嗎？</span></span></div>
+<div class="i1">
+<div class="component"><span class="radioContainer clearfix"><input id="582891_i1_rad_0" name="582891_i1_group" type="radio" value="A"/><label for="582891_i1_rad_0"><span><span>是的，我對實現這一學習目標的能力充滿信心。</span></span></label></span><span class="radioContainer clearfix"><input id="582891_i1_rad_1" name="582891_i1_group" type="radio" value="B"/><label for="582891_i1_rad_1"><span><span>不，我想了解有關此學習目標的更多材料。</span></span></label></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pageControls clearfix" id="pagecontrols-d87f2fa60a0001dc2f08216313c3e429"><a alt="單擊以重置此活動的所有提示，反饋和答案。" class="btnReset" contextguids="d87f2fa60a0001dc2f08216313c3e429" id="reset-d87f2fa60a0001dc2f08216313c3e429"></a><span><span>重置此活動</span></span></div>
+<br />Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）) << <a href='Wi-Fi Protected Access 2 (WPA2)(Wi-Fi保護訪問2（WPA2）).html'>Previous</a> <a href='Wireless Networking Types(無線網絡類型).html'>Next</a> >> Wireless Networking Types(無線網絡類型)</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
