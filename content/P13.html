@@ -133,65 +133,18 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW2 << <a href='HW2.html'>Previous</a> <a href='HW2之二.html'>Next</a> >> HW2之二<br /><h1>HW2之一</h1>
-<p><span>請問該如何取得與上述一乙相同格式的一甲分組數列? 請詳細說明解題步驟後列出一甲的分組數列.</span></p>
-<p>設計一甲</p>
-<div>
-<div class="syntaxhighlighter py" id="highlighter_19971">
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody>
-<tr>
-<td class="gutter">
-<div class="line number1 index0 alt2">1</div>
-<div class="line number2 index1 alt1">2</div>
-<div class="line number3 index2 alt2">3</div>
-<div class="line number4 index3 alt1">4</div>
-<div class="line number5 index4 alt2">5</div>
-<div class="line number6 index5 alt1">6</div>
-<div class="line number7 index6 alt2">7</div>
-<div class="line number8 index7 alt1">8</div>
-<div class="line number9 index8 alt2">9</div>
-<div class="line number10 index9 alt1">10</div>
-</td>
-<td class="code">
-<div class="container">
-<div class="line number1 index0 alt2"><code class="py keyword">import</code> <code class="py plain">urllib.request</code></div>
-<div class="line number2 index1 alt1"><code class="py plain">url </code><code class="py keyword">=</code> <code class="py string">"https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0762"</code></div>
-<div class="line number3 index2 alt2"><code class="py plain">cp1a </code><code class="py keyword">=</code> <code class="py plain">[]</code></div>
-<div class="line number4 index3 alt1"><code class="py keyword">for</code> <code class="py plain">line </code><code class="py keyword">in</code> <code class="py plain">urllib.request.urlopen(url):</code></div>
-<div class="line number5 index4 alt2"><code class="py spaces">    </code><code class="py plain">cp1a.append(</code><code class="py functions">int</code><code class="py plain">(line.decode(</code><code class="py string">'utf-8'</code><code class="py plain">).rstrip()))</code></div>
-<div class="line number6 index5 alt1"><code class="py functions">print</code><code class="py plain">(cp1a)</code></div>
-<div class="line number7 index6 alt2"><code class="py functions">print</code><code class="py plain">(</code><code class="py string">"總共有"</code> <code class="py keyword">+</code> <code class="py functions">str</code><code class="py plain">(</code><code class="py functions">len</code><code class="py plain">(cp1a)) </code><code class="py keyword">+</code> <code class="py string">" 筆"</code><code class="py plain">)</code></div>
-<div class="line number8 index7 alt1"><code class="py plain">total </code><code class="py keyword">=</code> <code class="py functions">len</code><code class="py plain">(cp1a)</code></div>
-<div class="line number9 index8 alt2"><code class="py keyword">for</code> <code class="py plain">i </code><code class="py keyword">in</code> <code class="py functions">range</code><code class="py plain">(total):</code></div>
-<div class="line number10 index9 alt1"><code class="py spaces">    </code><code class="py functions">print</code><code class="py plain">(</code><code class="py string">"http://github.com/"</code> <code class="py keyword">+</code> <code class="py functions">str</code><code class="py plain">(cp1a[i]) </code><code class="py keyword">+</code> <code class="py string">"/cp2020"</code><code class="py plain">)</code></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>1. import urllib.request</p>
-<p>    <span class="c1">導入 urllib.request:<span> </span><a href="https://docs.python.org/3/library/urllib.request.html">https://docs.python.org/3/library/urllib.request.html</a></span></p>
-<p>    並且透過<span class="c1">urllib.request 模組中的 urlopen() 開啟網路 url 連結資料</span></p>
-<p><span class="c1">2. url = "https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0762"</span></p>
-<p><span class="c1">    設定名單的源頭從<span><a href="https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0762%E9%80%99%E5%80%8B%E7%B6%B2%E5%9D%80%E4%BE%86">https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0762這個網址來</a></span></span></p>
-<p><span class="c1"><span>3.cp1a = []</span></span></p>
-<p><span class="c1"><span>   設定cp1a這個數列</span></span></p>
-<p><span class="c1"><span>4. for line in urllib.request.urlopen(url):<br/>    cp1a.append(int(line.decode('utf-8').rstrip()))</span></span></p>
-<p>    透過 urllib.request模組裡的urlopen()取下網際資料但由於資料為binary格式所以必須使用utf-8進行      編碼將它轉換成我們可看得懂的數字</p>
-<p>5. print(cp1a)</p>
-<p>    顯示cp1a , 由於前面有定義數列了所以cp1a的資料將以數列方式呈現</p>
-<p>6. print("總共有" + str(len(cp1a)) + " 筆")</p>
-<p>    顯示 <span>總共有+字串cp1a的資料數+筆</span></p>
-<p><span>7. total = len(cp1a)</span></p>
-<p><span>    設定total為cp1a資料數</span></p>
-<p><span>8. for i in range(total):<br/>    print("http://github.com/" + str(cp1a[i]) + "/cp2020")</span></p>
-<p>    用迴圈下去跑(total的資料數)相同的次數 </p>
-<p>    並顯示<span>http://github.com/+ cp1a資料裡每個數據 + /cp2020</span></p>
-<p><span><img alt="" height="747" src="https://40923123.github.io/cp2020/images/gSD0AlEkwh.png" width="917"/></span></p>
-<br />HW2 << <a href='HW2.html'>Previous</a> <a href='HW2之二.html'>Next</a> >> HW2之二</div>
+    <div id="tipue_search_content">P12 << <a href='P12.html'>Previous</a> <a href='P10 All solutions.html'>Next</a> >> P10 All solutions<br /><h1>P13</h1>
+<pre>Exercise 13 (and Solution)</pre>
+<p>Write a program that asks the user how many Fibonnaci numbers to generate and then generates them. Take this opportunity to think about how you can use functions. Make sure to ask the user to enter the number of numbers in the sequence to generate.(<em>Hint: The Fibonnaci seqence is a sequence of numbers where the next number in the sequence is the sum of the previous two numbers in the sequence. The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …</em>)</p>
+<pre>Discussion</pre>
+<p>Practice functions!</p>
+<pre>Happy coding!</pre>
+<div class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr" id="tw-target-text"><span lang="zh-TW">練習13（和解決方案）<span> </span>編寫一個程序，詢問用戶要生成多少斐波那契數字，然後生成它們。藉此機會考慮如何使用功能。確保要求用戶輸入要生成的序列中的數字。（提示：Fibonnaci序列是一個數字序列，其中序列中的下一個數字是序列中前兩個數字的和。該序列看起來像這樣：1、1、2、3、5、8、13…）</span></div>
+<pre>討論區</pre>
+<div class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr"><span lang="zh-TW">練習功能！</span></div>
+<pre>祝您編碼愉快！</pre>
+<p></p>
+<br />P12 << <a href='P12.html'>Previous</a> <a href='P10 All solutions.html'>Next</a> >> P10 All solutions</div>
         
     <!-- footer -->
       <div class="container">
