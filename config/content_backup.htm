@@ -1104,10 +1104,652 @@
 <p><a href="https://link.springer.com/book/10.1007/978-1-4471-0577-0">https://link.springer.com/book/10.1007/978-1-4471-0577-0</a> (1999)</p>
 <p></p>
 <p></p>
-<br/><br/><br/><br/><span>Character Input 字符輸入</span><br/><br/><br/><span>Character Input 字符輸入</span>
-<div class="activitywrap compositeNest flash"><br/><span></span>杯
-<p><span></span></p>
-</div><h1>教學歷程</h1>
+<div id="tipue_search_content">
+<h2>P10</h2>
+<p>List Overlap comprehensions</p>
+<div class="activitywrap purpose learnbydoing flash"></div>
+<div class="activitywrap purpose learnbydoing flash">Exercise 10 (and<span> </span><a href="https://www.practicepython.org/solution/2014/04/16/10-list-overlap-comprehensions-solutions.html">Solution</a>)
+<p>This week’s exercise is going to be revisiting an old exercise (see<span> </span><a href="https://www.practicepython.org/exercise/2014/03/05/05-list-overlap.html">Exercise 5</a>), except require the solution in a different way.</p>
+<p>Take two lists, say for example these two:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">]</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span></code></pre>
+</figure>
+<p>and write a program that returns a list that contains only the elements that are common between the lists (without duplicates). Make sure your program works on two lists of different sizes. Write this<span> </span><s>in one line of Python</s><span> </span><em>using at least one list comprehension</em>. (<em>Hint: Remember<span> </span><a href="https://www.practicepython.org/exercise/2014/03/19/07-list-comprehensions.html">list comprehensions</a><span> </span>from Exercise 7</em>).</p>
+<p><em>The original formulation of this exercise said to write the solution using one line of Python, but a few readers pointed out that this was impossible to do without using<span> </span><code class="highlighter-rouge">set</code>s that I had not yet discussed on the blog, so you can either choose to use the original directive and read about the<span> </span><a href="https://docs.python.org/3.3/library/stdtypes.html?highlight=set#set"><code class="highlighter-rouge">set</code><span> </span>command in Python 3.3</a>, or try to implement this on your own and use at least one list comprehension in the solution.</em></p>
+<p>Extra:</p>
+<ul>
+<li>Randomly generate two lists to test this</li>
+</ul>
+Discussion
+<p>Concepts for this week:</p>
+<ul>
+<li>List comprehensions</li>
+<li>Random numbers, continued</li>
+</ul>
+List comprehensions
+<p>We already discussed list comprehensions in<span> </span><a href="http://practicepython.blogspot.com/2014/03/exercise-7-list-comprehensions.html">Exercise 7</a>, but they can be made much more complicated.</p>
+<p>For example:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+	<span class="n">allproducts</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span></code></pre>
+</figure>
+<p>At the end of this piece of code,<span> </span><code class="highlighter-rouge">allproducts</code><span> </span>will contain the list<span> </span><code class="highlighter-rouge">[5, 10, 15, 10, 20, 30, 15, 30, 45]</code>. So you can put multiple for loops inside the comprehension. But you can also add more complicated conditionals:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+	<span class="n">customlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">y</span> <span class="k">if</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span></code></pre>
+</figure>
+<p>Now<span> </span><code class="highlighter-rouge">customlist</code><span> </span>contains<span> </span><code class="highlighter-rouge">[5, 15, 15, 45]</code><span> </span>because only the odd products are added to the list.</p>
+<p>In general, the list comprehension takes the form:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="p">[</span><span class="n">EXPRESSION</span> <span class="n">FOR_LOOPS</span> <span class="n">CONDITIONALS</span><span class="p">]</span></code></pre>
+</figure>
+<p>as shown in the examples above.</p>
+Random numbers, continued
+<p>Try to use the<span> </span><a href="https://docs.python.org/3.0/library/random.html">Python random documentation</a><span> </span>to figure out how to generate a random list. As a hint look below:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span></code></pre>
+</figure>
+<p>This line of code will leave<span> </span><code class="highlighter-rouge">a</code><span> </span>containing a list of 5 random numbers from 0 to 99.</p>
+列表重疊理解<br/><span></span><span><span>練習10（和</span></span><a href="https://www.practicepython.org/solution/2014/04/16/10-list-overlap-comprehensions-solutions.html"><span><span>解決方案</span></span></a><span><span>）</span></span>
+<p><span><span>本週的練習將重溫舊的練習（請參閱</span></span><a href="https://www.practicepython.org/exercise/2014/03/05/05-list-overlap.html"><span><span>練習5</span></span></a><span><span>），只是需要以其他方式解決。</span></span></p>
+<p><span><span>拿兩個列表，舉例來說，這兩個：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">]</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span></code></pre>
+</figure>
+<p><span><span>並編寫一個程序，該程序返回一個列表，該列表僅包含列表之間的公共元素（無重複項）。</span><span>確保您的程序可以在兩個不同大小的列表上運行。</span><em><span>使用至少一個列表理解</span></em></span><s><span><span>語句在一行Python中</span></span></s><span> </span><span><span>編寫</span><span>。</span><span>（</span><em><span>提示：記住</span></em><em><span>練習7中的</span></em><em><a href="https://www.practicepython.org/exercise/2014/03/19/07-list-comprehensions.html"><span>列表理解</span></a></em><span>）。</span></span><em><span></span></em><span></span><em><span></span><a href="https://www.practicepython.org/exercise/2014/03/19/07-list-comprehensions.html"><span></span></a><span></span></em><span></span></p>
+<p><em><span><span>此練習的原始表述是使用一行Python編寫解決方案，但是一些讀者指出，如果不使用</span></span><code class="highlighter-rouge">set</code><span><span>我尚未在博客上討論過的s，</span><span>則不可能做到這一點</span><span>，因此您可以選擇使用原始指令，並閱讀</span></span><a href="https://docs.python.org/3.3/library/stdtypes.html?highlight=set#set"><code class="highlighter-rouge">set</code><span><span>Python 3.3中</span></span></a><span><span>的</span><a href="https://docs.python.org/3.3/library/stdtypes.html?highlight=set#set"><span>命令</span></a><span>，或者嘗試自己實現該</span><span>指令並</span><span>在解決方案中至少使用一個列表理解。</span></span></em></p>
+<p><span><span>額外：</span></span></p>
+<ul>
+<li><span><span>隨機生成兩個列表進行測試</span></span></li>
+</ul>
+<span><span>討論區</span></span>
+<p><span><span>本週的概念：</span></span></p>
+<ul>
+<li><span><span>清單理解</span></span></li>
+<li><span><span>隨機數，續</span></span></li>
+</ul>
+<span><span>清單理解</span></span>
+<p><span><span>我們已經在</span></span><a href="http://practicepython.blogspot.com/2014/03/exercise-7-list-comprehensions.html"><span><span>練習7中</span></span></a><span><span>討論了列表理解</span><span>，但是可以使它們複雜得多。</span></span></p>
+<p><span><span>例如：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+	<span class="n">allproducts</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span></code></pre>
+</figure>
+<p><span><span>在這段代碼的最後，</span></span><code class="highlighter-rouge">allproducts</code><span><span>將包含list<span> </span></span></span><code class="highlighter-rouge">[5, 10, 15, 10, 20, 30, 15, 30, 45]</code><span><span>。</span><span>因此，您可以在理解中放入多個for循環。</span><span>但是您還可以添加更複雜的條件：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+	<span class="n">customlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">y</span> <span class="k">if</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span></code></pre>
+</figure>
+<p><span><span>現在</span></span><code class="highlighter-rouge">customlist</code><span><span>包含，</span></span><code class="highlighter-rouge">[5, 15, 15, 45]</code><span><span>因為僅將奇數產品添加到列表中。</span></span></p>
+<p><span><span>通常，列表理解採用以下形式：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="p">[</span><span class="n">EXPRESSION</span> <span class="n">FOR_LOOPS</span> <span class="n">CONDITIONALS</span><span class="p">]</span></code></pre>
+</figure>
+<p><span><span>如以上示例所示。</span></span></p>
+<span><span>隨機數，續</span></span>
+<p><span><span>嘗試使用</span></span><a href="https://docs.python.org/3.0/library/random.html"><span><span>Python隨機文檔</span></span></a><span><span>來弄清楚如何生成隨機列表。</span><span>提示如下：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span></code></pre>
+</figure>
+<p><span><span>這行代碼將</span></span><code class="highlighter-rouge">a</code><span><span>包含從0到99的5個隨機數的列表。</span></span></p>
+回顧
+<p><span><span>函數的作用是包裝我們要重用的一段代碼，對其進行標記，並允許我們相對容易地再次使用它。</span><span>您可以將變量添加到函數中，以使代碼更加可重用，並且可以將默認參數添加到這些變量中。</span></span></p>
+<p><span><span>一開始處理函數有點奇怪，但是一旦掌握了這些函數，它們將成為編程的救星。</span><span>此外，學習編程的重點是抽象，解決問題，分解問題，而這正是功能的全部所在。</span></span></p>
+</div>
+<div id="tipue_search_content">
+<div id="tipue_search_content">
+
+</div>
+<div class="activitywrap purpose learnbydoing flash">
+<ul>
+<li>
+<div class="gist" id="gist16704299">
+<div class="gist-file">
+<div class="gist-meta">
+<div class="gist" id="gist16704299">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-list-overlap-comprehensions-2-py"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<h2>P11</h2>
+check primality functions<br/>Exercise 11 (and<span> </span><a href="https://www.practicepython.org/solution/2014/04/16/11-check-primality-functions-solutions.html">Solution</a>)
+<p>Ask the user for a number and determine whether the number is prime or not. (For those who have forgotten, a prime number is a number that has no divisors.). You can (and should!) use your answer to<span> </span><a href="https://www.practicepython.org/exercise/2014/02/26/04-divisors.html">Exercise 4</a><span> </span>to help you. Take this opportunity to practice using functions, described below.</p>
+Discussion
+<p>Concepts for this week:</p>
+<ul>
+<li>Functions</li>
+<li>Reusable functions</li>
+<li>Default arguments</li>
+</ul>
+Functions
+<p>One of the tools programming gives us is the ability to break down problems into easier (or perhaps previously solved) or reusable subproblems. It is good practice to have a function have a single purpose, and the name of that function should hint at it’s purpose in some way.</p>
+<p>Most programming languages have this idea of a function, subroutine, or subprogram. In Python, a function is a programming construct that allows exactly that.</p>
+<p>Let’s look at a simple example:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Give me a number: "</span><span class="p">))</span></code></pre>
+</figure>
+<p>In this small example, we used the same code that asks a user for input as a tabbed line underneath this<span> </span><code class="highlighter-rouge">def</code><span> </span>statement. The<span> </span><code class="highlighter-rouge">def</code><span> </span>means that everything tabbed underneath is a function. The name<span> </span><code class="highlighter-rouge">get_integer()</code><span> </span>is just a name that I (the programmer) made up. If I just include this code inside a Python file and run it, nothing will happen - all I have done so far is wrapped my code inside of a function; I never told my program to actually RUN my function.</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Give me a number: "</span><span class="p">))</span>
+
+  <span class="n">age</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">()</span>
+  <span class="n">school_year</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">()</span>
+  <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You are over the age of 15"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"You are in grade "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">school_year</span><span class="p">))</span></code></pre>
+</figure>
+<p>What I have done here is<span> </span><em>called</em><span> </span>the function (told it to run) by writing<span> </span><code class="highlighter-rouge">age = get_integer()</code>. When this line of code runs, what happens is the program will<span> </span><em>execute</em><span> </span>(run) the function by asking me for a number, then<span> </span><em>returning</em><span> </span>it (giving it back to me) by saving it inside the variable<span> </span><code class="highlighter-rouge">age</code>. Now when I want to ask the user for another number (this time representing the school year), I do the same thing with the variable<span> </span><code class="highlighter-rouge">school_year</code>.</p>
+Reusable functions
+<p>This is all well and good, but I can make my function do much more for me. Right now, my function will always ask the user for a number by printing the string<span> </span><code class="highlighter-rouge">"Give me a number: "</code>. What if I want to print a different string every time I ask the user for a number, but otherwise use the same idea for the function? In other words, I want a variable parameter in my function that changes every time I call the function based on something I (the programmer) want to be different.</p>
+<p>I can do this by<span> </span><em>passing</em><span> </span>(giving) my function a variable. Like this:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">(</span><span class="n">help_text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span></code></pre>
+</figure>
+<p>Now what I can do when I call the function is something like this:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">(</span><span class="n">help_text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span>
+
+  <span class="n">age</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">(</span><span class="s">"Tell me your age: "</span><span class="p">)</span>
+  <span class="n">school_year</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">(</span><span class="s">"What grade are you in? "</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You are over the age of 15"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"You are in grade "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">school_year</span><span class="p">))</span></code></pre>
+</figure>
+<p>Now it is easier for a user to use the program, because the help text is different.</p>
+<p>These variables you pass to functions are called<span> </span><em>variables</em>,<span> </span><em>parameters</em>, or<span> </span><em>arguments</em>.</p>
+Default arguments
+<p>In the example above, once I have added an<span> </span><em>argument</em><span> </span>to my function, I always have to give an argument when I call the function. I can’t forget to give the<span> </span><code class="highlighter-rouge">get_integer()</code><span> </span>function from above a string to print to the screen. In some cases, I want there to be a “default” behavior for my function that happens when I create an argument for it but don’t give it any.</p>
+<p>In the example above, if I don’t give a custom string (which may be 95% of the time I use this function), I just want the<span> </span><code class="highlighter-rouge">input()</code><span> </span>line to say<span> </span><code class="highlighter-rouge">"Give me a number: "</code><span> </span>and I want to save myself the trouble of writing this every single time I call the function. So what I can do is give my function<span> </span><em>default arguments</em>. Like so:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">(</span><span class="n">help_text</span><span class="o">=</span><span class="s">"Give me a number: "</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span></code></pre>
+</figure>
+<p>What happens now is I can use the function in two ways: by giving it an argument and by NOT giving it an argument.</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">(</span><span class="n">help_text</span><span class="o">=</span><span class="s">"Give me a number: "</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span>
+
+  <span class="n">age</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">(</span><span class="s">"Tell me your age: "</span><span class="p">)</span>
+  <span class="n">school_year</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">()</span>
+  <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You are over the age of 15"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"You are in grade "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">school_year</span><span class="p">))</span></code></pre>
+</figure>
+<p>The first time I call the function, it will print<span> </span><code class="highlighter-rouge">"Tell me your age: "</code>, but the second time, it will print<span> </span><code class="highlighter-rouge">"Give me a number: "</code>, because I did not give it a string and it will execute the default behavior.</p>
+Recap
+<p>What a function does is wrap a piece of code that we want to reuse, labels it, and allows us to use it again relatively easily. You can add variables to the functions to make your code even MORE reusable, and you can add default arguments to these variables.</p>
+<p>Functions are a bit strange to deal with at first, but once you master them, they will be your savior in programming. Besides, the whole point of learning programming is abstraction, problem solving, breaking down problems, and that’s exactly what functions are all about.</p>
+檢查基本功能</div>
+<div class="activitywrap purpose learnbydoing flash"><span></span><span><span>練習11（和</span></span><a href="https://www.practicepython.org/solution/2014/04/16/11-check-primality-functions-solutions.html"><span><span>解決方案</span></span></a><span><span>）</span></span>
+<p><span><span>向用戶詢問一個數字，並確定該數字是否為質數。</span><span>（對於那些忘記的人，質數是沒有除數的數。）</span><span>您可以（並且應該！）使用</span></span><a href="https://www.practicepython.org/exercise/2014/02/26/04-divisors.html"><span><span>練習4</span></span></a><span><span>的答案</span><span>來幫助您。</span><span>藉此機會練習使用如下所述的功能。</span></span></p>
+<span><span>討論區</span></span>
+<p><span><span>本週的概念：</span></span></p>
+<ul>
+<li><span><span>職能</span></span></li>
+<li><span><span>可重用功能</span></span></li>
+<li><span><span>默認參數</span></span></li>
+<li>職能</li>
+</ul>
+<p><span><span>編程提供給我們的工具之一是能夠將問題分解為更簡單（或可能先前解決）或可重用的子問題。</span><span>優良作法是使一個函數具有單一目的，並且該函數的名稱應以某種方式暗示其目的。</span></span></p>
+<p><span><span>大多數編程語言都具有函數，子例程或子程序的概念。</span><span>在Python中，函數是一種允許這樣做的編程構造。</span></span></p>
+<p><span><span>讓我們看一個簡單的例子：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Give me a number: "</span><span class="p">))</span></code></pre>
+</figure>
+<p><span><span>在這個小示例中，我們使用了相同的代碼來要求用戶輸入此</span></span><code class="highlighter-rouge">def</code><span><span>語句</span><span>下方的選項卡行</span><span>。</span><span>的</span></span><code class="highlighter-rouge">def</code><span><span>手段，一切選項卡式下面是一個函數。</span><span>這個名字</span></span><code class="highlighter-rouge">get_integer()</code><span><span>只是我（程序員）組成的名字。</span><span>如果我只是將此代碼包含在Python文件中並運行它，則將不會發生任何事情-到目前為止，我所做的一切都將我的代碼包裝在一個函數中；</span><span>我從未告訴過我的程序實際運行我的功能。</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Give me a number: "</span><span class="p">))</span><span></span>
+<span></span>
+  <span class="n">age</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">()</span>
+  <span class="n">school_year</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">()</span>
+  <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You are over the age of 15"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"You are in grade "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">school_year</span><span class="p">))</span></code></pre>
+</figure>
+<p><span><span>我在這裡所做的事情</span><span>通過編寫</span></span><em><span><span>稱為</span></span></em><span><span>函數（告訴它運行）</span></span><code class="highlighter-rouge">age = get_integer()</code><span><span>。</span><span>當這行代碼運行時，程序將</span><span>通過詢問我一個數字</span><span>來</span></span><em><span><span>執行</span></span></em><span><span>（運行）該函數，然後</span></span><em><span><span>將</span></span></em><span><span>其保存在變量中以將其</span><em><span>返回</span></em><span>（返還給我）</span></span><code class="highlighter-rouge">age</code><span><span>。</span><span>現在，當我想問用戶另一個數字（這次代表學年）時，我對變量做了同樣的事情</span></span><code class="highlighter-rouge">school_year</code><span><span>。</span></span></p>
+<span><span>可重用功能</span></span>
+<p><span><span>這一切都很好，但是我可以讓我的功能為我做更多的事情。</span><span>現在，我的函數將始終通過打印字符串向用戶詢問一個數字</span></span><code class="highlighter-rouge">"Give me a number: "</code><span><span>。</span><span>如果我想每次問用戶一個數字時都想打印一個不同的字符串，但對於該函數使用相同的想法怎麼辦？</span><span>換句話說，我希望函數中的變量參數在每次調用函數時都根據我（程序員）希望與眾不同的事物而改變。</span></span></p>
+<p><span><span>我可以通過</span></span><em><span><span>傳遞</span></span></em><span><span>（給我的）函數一個變量</span><span>來做到這一點</span><span>。</span><span>像這樣：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">(</span><span class="n">help_text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span></code></pre>
+</figure>
+<p><span><span>現在，我在調用該函數時可以執行的操作如下：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">(</span><span class="n">help_text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span><span></span>
+<span></span>
+  <span class="n">age</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">(</span><span class="s">"Tell me your age: "</span><span class="p">)</span>
+  <span class="n">school_year</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">(</span><span class="s">"What grade are you in? "</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You are over the age of 15"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"You are in grade "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">school_year</span><span class="p">))</span></code></pre>
+</figure>
+<p><span><span>現在，由於幫助文本不同，因此使用戶更容易使用該程序。</span></span></p>
+<p><span><span>傳遞給函數的這些變量稱為</span></span><em><span><span>變量</span></span></em><span><span>，</span></span><em><span><span>參數</span></span></em><span><span>或</span></span><em><span><span>參數</span></span></em><span><span>。</span></span></p>
+<span><span>默認參數</span></span>
+<p><span><span>在上面的示例中，在</span><span>向函數</span><span>添加</span></span><em><span><span>參數後</span></span></em><span><span>，在調用函數時始終必須提供參數。</span><span>我不能忘記</span></span><code class="highlighter-rouge">get_integer()</code><span><span>從字符串上方</span><span>給</span><span>函數打印到屏幕上。</span><span>在某些情況下，我希望函數有一種“默認”行為，這種行為會在為它創建參數但不給出任何參數時發生。</span></span></p>
+<p><span><span>在上面的示例中，如果我不提供自定義字符串（可能占我使用此函數的時間的95％），我只想讓</span></span><code class="highlighter-rouge">input()</code><span><span>行說出來，</span></span><code class="highlighter-rouge">"Give me a number: "</code><span><span>並且省去了每次編寫此</span><span>字符串</span><span>的麻煩我稱這個功能。</span><span>所以我能做的就是給我的函數</span></span><em><span><span>默認參數</span></span></em><span><span>。</span><span>像這樣：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">(</span><span class="n">help_text</span><span class="o">=</span><span class="s">"Give me a number: "</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span></code></pre>
+</figure>
+<p><span><span>現在發生的事情是我可以通過兩種方式使用該函數：通過給它一個參數和不給它一個參數。</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="k">def</span> <span class="nf">get_integer</span><span class="p">(</span><span class="n">help_text</span><span class="o">=</span><span class="s">"Give me a number: "</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">help_text</span><span class="p">))</span><span></span>
+<span></span>
+  <span class="n">age</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">(</span><span class="s">"Tell me your age: "</span><span class="p">)</span>
+  <span class="n">school_year</span> <span class="o">=</span> <span class="n">get_integer</span><span class="p">()</span>
+  <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"You are over the age of 15"</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"You are in grade "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">school_year</span><span class="p">))</span></code></pre>
+</figure>
+<p><span><span>第一次調用該函數，它將打印</span></span><code class="highlighter-rouge">"Tell me your age: "</code><span><span>，但是第二次，它將打印</span></span><code class="highlighter-rouge">"Give me a number: "</code><span><span>，因為我沒有給它一個字符串，它將執行默認行為。</span></span></p>
+</div>
+<p></p>
+<p></p>
+<div id="tipue_search_content">
+<h2>P12</h2>
+<span>List ends</span></div>
+<div class="activitywrap purpose learnbydoing flash">Exercise 12 (and<span> </span><a href="https://www.practicepython.org/solution/2014/05/15/12-list-ends-solutions.html">Solution</a>)
+<p>Write a program that takes a list of numbers (for example,<span> </span><code class="highlighter-rouge">a = [5, 10, 15, 20, 25]</code>) and makes a new list of only the first and last elements of the given list. For practice, write this code inside a function.</p>
+Concepts to practice
+<ul>
+<li>Lists and properties of lists</li>
+<li>List comprehensions (maybe)</li>
+<li>Functions</li>
+</ul>
+<span><span></span></span></div>
+<h4 class="activitywrap purpose learnbydoing flash"><span><span>清單結尾</span></span></h4>
+<div class="activitywrap purpose learnbydoing flash"><span><span>練習12（和</span></span><a href="https://www.practicepython.org/solution/2014/05/15/12-list-ends-solutions.html"><span><span>解決方案</span></span></a><span><span>）</span></span></div>
+<div class="activitywrap purpose learnbydoing flash">
+<p><span><span>編寫一個程序，該程序接受一個數字列表（例如</span></span><code class="highlighter-rouge">a = [5, 10, 15, 20, 25]</code><span><span>），並製作一個僅包含給定列表的第一個和最後一個元素的新列表。</span><span>為了練習，請在函數內編寫此代碼。</span></span></p>
+<span><span>練習概念</span></span>
+<ul>
+<li><span><span>列表和列表屬性</span></span></li>
+<li><span><span>列表理解（也許）</span></span></li>
+<li><span><span>職能</span></span><span><span></span></span></li>
+<li>List Overlap Comprehensions Solutions<span></span><br/><i></i>P10 AII solutions<span> </span><a href="https://www.practicepython.org/exercise/2014/04/10/10-list-overlap-comprehensions.html"></a><a href="https://www.practicepython.org/exercise/2014/04/10/10-list-overlap-comprehensions.html">Exercise 10</a>
+<p>This week’s exercise is going to be revisiting an old exercise (see<span> </span><a href="https://www.practicepython.org/exercise/2014/03/05/05-list-overlap.html">Exercise 5</a>), except require the solution in a different way.</p>
+<p>Take two lists, say for example these two:</p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">]</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span></code></pre>
+</figure>
+<p>and write a program that returns a list that contains only the elements that are common between the lists (without duplicates). Make sure your program works on two lists of different sizes. Write this<span> </span><em>using at least one list comprehension</em>. (<em>Hint: Remember<span> </span><a href="https://www.practicepython.org/exercise/2014/03/19/07-list-comprehensions.html">list comprehensions</a><span> </span>from Exercise 7</em>).</p>
+<p>Extra:</p>
+<ul>
+<li>Randomly generate two lists to test this</li>
+</ul>
+Sample solution
+<p>A user-submitted solution:</p>
+<div class="gist" id="gist10904252">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-exercise-10">
+<div class="Box-body p-0 blob-wrapper data type-text" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-exercise-10-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC1">import random</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-exercise-10-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC2"></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-exercise-10-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC3">a = random.sample(range(1,30), 12)</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-exercise-10-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC4">b = random.sample(range(1,30), 16)</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="5" id="file-exercise-10-L5"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC5">result = [i for i in a if i in b]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/anonymous/10904252/raw/02252b579b7b5d544890dadf356c941ad73e78d4/Exercise%2010">view raw</a><a href="https://gist.github.com/anonymous/10904252#file-exercise-10">Exercise 10</a><span> </span>hosted with ❤ by<span> </span><a href="https://github.com/">GitHub</a></div>
+</div>
+</div>
+<p>As a few commenters / readers of this blog have pointed out (thanks mainly to Gautam and Jeff), the exercise as posed is actually impossible to write in a single line of Python. The problem is this: the proposed reader solution (and the solution that I had in mind myself) as written above does not take into account the fact that there might be duplicates in the resulting list, where I specifically asked to not include duplicates. This means that in the simple example I gave above,<span> </span><code class="highlighter-rouge">a</code>’s first element is<span> </span><code class="highlighter-rouge">1</code><span> </span>will be added to the<span> </span><code class="highlighter-rouge">result</code><span> </span>list because it is in<span> </span><code class="highlighter-rouge">b</code>. But then it’s next element is also<span> </span><code class="highlighter-rouge">1</code>, and is also in<span> </span><code class="highlighter-rouge">b</code>, so will be added to the<span> </span><code class="highlighter-rouge">result</code><span> </span>list. So the solution as given (the comprehension<span> </span><code class="highlighter-rouge">[i for i in a if i in b]</code>) will not yield the correct result on the example solution.</p>
+<p>Instead, as pointed out by Gautam and Jeff, the simplest way to achieve this solution would be to make sure that we are only looking at unique elements from<span> </span><code class="highlighter-rouge">a</code>, the first list in the comprehension. We have not discussed doing this easily in Python on this blog using the<span> </span><code class="highlighter-rouge">set</code><span> </span>built-in function, but if you know it, the solution will look like this:</p>
+<div class="gist" id="gist16704299">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-list-overlap-comprehensions-py">
+<div class="Box-body p-0 blob-wrapper data type-python" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-list-overlap-comprehensions-py-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-py-LC1"><span class="pl-k">import</span><span> </span><span class="pl-s1">random</span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-list-overlap-comprehensions-py-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-py-LC2"><span class="pl-s1">a</span><span> </span><span class="pl-c1">=</span><span> </span><span class="pl-s1">random</span>.<span class="pl-en">sample</span>(<span class="pl-en">range</span>(<span class="pl-c1">1</span>,<span class="pl-c1">30</span>),<span> </span><span class="pl-c1">12</span>)</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-list-overlap-comprehensions-py-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-py-LC3"><span class="pl-s1">b</span><span> </span><span class="pl-c1">=</span><span> </span><span class="pl-s1">random</span>.<span class="pl-en">sample</span>(<span class="pl-en">range</span>(<span class="pl-c1">1</span>,<span class="pl-c1">30</span>),<span> </span><span class="pl-c1">16</span>)</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-list-overlap-comprehensions-py-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-py-LC4"><span class="pl-s1">result</span><span> </span><span class="pl-c1">=</span><span> </span>[<span class="pl-s1">i</span><span> </span><span class="pl-k">for</span><span> </span><span class="pl-s1">i</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-en">set</span>(<span class="pl-s1">a</span>)<span> </span><span class="pl-k">if</span><span> </span><span class="pl-s1">i</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-s1">b</span>]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/mprat/654b5f9286bcc2469077/raw/797c8e56bf0435c5130fa94ef666f119aef0ef07/list-overlap-comprehensions.py">view raw</a><a href="https://gist.github.com/mprat/654b5f9286bcc2469077#file-list-overlap-comprehensions-py">list-overlap-comprehensions.py</a><span> </span>hosted with ❤ by<span> </span><a href="https://github.com/">GitHub</a></div>
+</div>
+</div>
+<p>But, to achieve the same results as asked in the original question while still using a list comprehension (however, definitely not using a single line of code), would be to make sure that there is no overlap in the new list after it is constructed, using the traditional<span> </span><code class="highlighter-rouge">for</code><span> </span>loop on lists:</p>
+<div class="gist" id="gist16704299">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-list-overlap-comprehensions-for-py">
+<div class="Box-body p-0 blob-wrapper data type-python" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-list-overlap-comprehensions-for-py-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC1"><span class="pl-k">import</span><span> </span><span class="pl-s1">random</span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-list-overlap-comprehensions-for-py-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC2"><span class="pl-s1">a</span><span> </span><span class="pl-c1">=</span><span> </span><span class="pl-s1">random</span>.<span class="pl-en">sample</span>(<span class="pl-en">range</span>(<span class="pl-c1">1</span>,<span class="pl-c1">30</span>),<span> </span><span class="pl-c1">12</span>)</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-list-overlap-comprehensions-for-py-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC3"><span class="pl-s1">b</span><span> </span><span class="pl-c1">=</span><span> </span><span class="pl-s1">random</span>.<span class="pl-en">sample</span>(<span class="pl-en">range</span>(<span class="pl-c1">1</span>,<span class="pl-c1">30</span>),<span> </span><span class="pl-c1">16</span>)</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-list-overlap-comprehensions-for-py-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC4"><span class="pl-s1">result_overlap</span><span> </span><span class="pl-c1">=</span><span> </span>[<span class="pl-s1">i</span><span> </span><span class="pl-k">for</span><span> </span><span class="pl-s1">i</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-en">set</span>(<span class="pl-s1">a</span>)<span> </span><span class="pl-k">if</span><span> </span><span class="pl-s1">i</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-s1">b</span>]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="5" id="file-list-overlap-comprehensions-for-py-L5"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC5"><span class="pl-s1">result</span><span> </span><span class="pl-c1">=</span><span> </span>[]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="6" id="file-list-overlap-comprehensions-for-py-L6"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC6"><span class="pl-k">for</span><span> </span><span class="pl-s1">element</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-s1">result_overlap</span>:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="7" id="file-list-overlap-comprehensions-for-py-L7"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC7"><span class="pl-k">if</span><span> </span><span class="pl-s1">element</span><span> </span><span class="pl-c1">not</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-s1">result</span>:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="8" id="file-list-overlap-comprehensions-for-py-L8"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC8"><span class="pl-s1">result</span>.<span class="pl-en">appent</span>(<span class="pl-s1">element</span>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/mprat/654b5f9286bcc2469077/raw/797c8e56bf0435c5130fa94ef666f119aef0ef07/list-overlap-comprehensions-for.py">view raw</a><a href="https://gist.github.com/mprat/654b5f9286bcc2469077#file-list-overlap-comprehensions-for-py">list-overlap-comprehensions-for.py</a><span> </span>hosted with ❤ by<span> </span><a href="https://github.com/">GitHub</a></div>
+</div>
+</div>
+<p>Or, to practice list comprehensions again, this can be done with two list comprehensions:</p>
+<div class="gist" id="gist16704299">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-list-overlap-comprehensions-2-py">
+<div class="Box-body p-0 blob-wrapper data type-python" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-list-overlap-comprehensions-2-py-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC1"><span class="pl-k">import</span><span> </span><span class="pl-s1">random</span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-list-overlap-comprehensions-2-py-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC2"><span class="pl-s1">a</span><span> </span><span class="pl-c1">=</span><span> </span><span class="pl-s1">random</span>.<span class="pl-en">sample</span>(<span class="pl-en">range</span>(<span class="pl-c1">1</span>,<span class="pl-c1">30</span>),<span> </span><span class="pl-c1">12</span>)</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-list-overlap-comprehensions-2-py-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC3"><span class="pl-s1">b</span><span> </span><span class="pl-c1">=</span><span> </span><span class="pl-s1">random</span>.<span class="pl-en">sample</span>(<span class="pl-en">range</span>(<span class="pl-c1">1</span>,<span class="pl-c1">30</span>),<span> </span><span class="pl-c1">16</span>)</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-list-overlap-comprehensions-2-py-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC4"><span class="pl-s1">result_overlaps</span><span> </span><span class="pl-c1">=</span><span> </span>[<span class="pl-s1">i</span><span> </span><span class="pl-k">for</span><span> </span><span class="pl-s1">i</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-en">set</span>(<span class="pl-s1">a</span>)<span> </span><span class="pl-k">if</span><span> </span><span class="pl-s1">i</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-s1">b</span>]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="5" id="file-list-overlap-comprehensions-2-py-L5"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC5"><span class="pl-s1">result</span><span> </span><span class="pl-c1">=</span><span> </span>[<span class="pl-s1">i</span><span> </span><span class="pl-k">for</span><span> </span><span class="pl-s1">i</span><span> </span><span class="pl-c1">in</span><span> </span><span class="pl-s1">result_overlaps</span><span> </span><span class="pl-k">if</span><span> </span><span class="pl-s1">result_overlaps</span>.<span class="pl-en">count</span>(<span class="pl-s1">i</span>)<span> </span><span class="pl-c1">==</span><span> </span><span class="pl-c1">1</span>]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/mprat/654b5f9286bcc2469077/raw/797c8e56bf0435c5130fa94ef666f119aef0ef07/list-overlap-comprehensions-2.py">view raw</a></div>
+<div class="gist-meta">
+<p><span>本週的練習將重溫舊的練習（請參閱</span><a href="https://www.practicepython.org/exercise/2014/03/05/05-list-overlap.html"><span>練習5</span></a><span>），只是需要以其他方式解決。</span></p>
+<p><span><span>拿兩個列表，舉例來說，這兩個：</span></span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">	<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">]</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span></code></pre>
+</figure>
+<p><span><span>並編寫一個程序，該程序返回一個列表，該列表僅包含列表之間的公共元素（無重複項）。</span><span>確保您的程序可以在兩個不同大小的列表上運行。</span></span><em><span><span>至少使用一個列表理解來</span></span></em><span><span>寫這個</span><span>。</span><span>（</span></span><em><span><span>提示：記住</span><span>練習7中的</span></span><a href="https://www.practicepython.org/exercise/2014/03/19/07-list-comprehensions.html"><span><span>列表理解</span></span></a><span></span></em><span><span>）。</span></span></p>
+<p><span><span>額外：</span></span></p>
+<ul>
+<li><span><span>隨機生成兩個列表進行測試</span></span></li>
+</ul>
+<span><span>樣品溶液</span></span>
+<p><span><span>用戶提交的解決方案：</span></span></p>
+<div class="gist" id="gist10904252">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-exercise-10">
+<div class="Box-body p-0 blob-wrapper data type-text" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-exercise-10-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC1"><span><span>隨機導入</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-exercise-10-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC2"></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-exercise-10-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC3"><span><span>一個= random.sample（range（1,30），12）</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-exercise-10-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC4"><span><span>b = random.sample（範圍（1,30），16）</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="5" id="file-exercise-10-L5"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-exercise-10-LC5"><span><span>結果= [如果b中有i，則a中的i代表i]</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/anonymous/10904252/raw/02252b579b7b5d544890dadf356c941ad73e78d4/Exercise%2010"><span><span>查看原始</span></span></a><a href="https://gist.github.com/anonymous/10904252#file-exercise-10"><span><span>練習10</span></span></a><span><span><span> </span>由</span></span><a href="https://github.com/"><span><span>GitHub託管</span></span></a></div>
+</div>
+</div>
+<p><span><span>正如該博客的一些評論者/讀者所指出的（主要感謝Gautam和Jeff），所提出的練習實際上不可能用Python編寫。</span><span>問題是這樣的：上面寫的建議的閱讀器解決方案（以及我自己想到的解決方案）沒有考慮到結果列表中可能存在重複項的事實，我特別要求不要包含重複項。</span><span>這意味著在我上面給出的簡單示例中，</span></span><code class="highlighter-rouge">a</code><span><span>第一個元素</span></span><code class="highlighter-rouge">1</code><span><span>將被添加到</span></span><code class="highlighter-rouge">result</code><span><span>列表中，因為它在中</span></span><code class="highlighter-rouge">b</code><span><span>。</span><span>但隨後它的下一個元素也是</span></span><code class="highlighter-rouge">1</code><span><span>，並且也在</span></span><code class="highlighter-rouge">b</code><span><span>，因此將被添加到</span></span><code class="highlighter-rouge">result</code><span><span>列表中。</span><span>因此，給定的解決方案（comprehension<span> </span></span></span><code class="highlighter-rouge">[i for i in a if i in b]</code><span><span>）將無法在示例解決方案上產生正確的結果。</span></span></p>
+<p><span><span>相反，正如Gautam和Jeff所指出的那樣，實現此解決方案的最簡單方法是確保僅查看來自</span></span><code class="highlighter-rouge">a</code><span><span>理解中第一個列表的</span><span>唯一元素</span><span>。</span><span>我們沒有在此博客上使用</span></span><code class="highlighter-rouge">set</code><span><span>內置函數</span><span>討論在Python中輕鬆實現此操作的</span><span>方法，但是如果您知道，解決方案將如下所示：</span></span></p>
+<div class="gist" id="gist16704299">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-list-overlap-comprehensions-py">
+<div class="Box-body p-0 blob-wrapper data type-python" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-list-overlap-comprehensions-py-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-py-LC1"><span class="pl-k"><span></span></span><span><span class="pl-s1"><span>隨機</span></span><span class="pl-k"><span>導入</span></span></span><span class="pl-s1"><span></span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-list-overlap-comprehensions-py-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-py-LC2"><span class="pl-s1"><span><span>a<span> </span></span></span></span><span class="pl-c1"><span><span>=</span></span></span><span> </span><span class="pl-s1"><span><span>隨機的</span></span></span><span><span>。</span></span><span class="pl-en"><span><span>樣品</span></span></span><span><span>（</span></span><span class="pl-en"><span><span>範圍</span></span></span><span><span>（</span></span><span class="pl-c1"><span><span>1</span></span></span><span><span>，</span></span><span class="pl-c1"><span><span>30</span></span></span><span><span>），</span></span><span class="pl-c1"><span><span>12</span></span></span><span><span>）</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-list-overlap-comprehensions-py-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-py-LC3"><span class="pl-s1"><span><span>b<span> </span></span></span></span><span class="pl-c1"><span><span>=</span></span></span><span> </span><span class="pl-s1"><span><span>隨機</span></span></span><span><span>。</span></span><span class="pl-en"><span><span>樣品</span></span></span><span><span>（</span></span><span class="pl-en"><span><span>範圍</span></span></span><span><span>（</span></span><span class="pl-c1"><span><span>1</span></span></span><span><span>，</span></span><span class="pl-c1"><span><span>30</span></span></span><span><span>），</span></span><span class="pl-c1"><span><span>16</span></span></span><span><span>）</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-list-overlap-comprehensions-py-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-py-LC4"><span class="pl-s1"><span><span>導致</span></span></span><span> </span><span class="pl-c1"><span><span>=</span></span></span><span><span><span> </span>[</span></span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-k"><span><span>為</span></span></span><span> </span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-en"><span><span>集</span></span></span><span><span>（</span></span><span class="pl-s1"><span><span>一</span></span></span><span><span>）</span></span><span class="pl-k"><span><span>如果</span></span></span><span> </span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-s1"><span><span>b</span></span></span><span><span><span> </span>]</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/mprat/654b5f9286bcc2469077/raw/797c8e56bf0435c5130fa94ef666f119aef0ef07/list-overlap-comprehensions.py"><span><span>查看原始</span></span></a><a href="https://gist.github.com/mprat/654b5f9286bcc2469077#file-list-overlap-comprehensions-py"><span><span>list-overlap-comprehensions.py</span></span></a><span><span><span> </span>託管與❤通過</span></span><a href="https://github.com/"><span><span>GitHub上</span></span></a></div>
+</div>
+</div>
+<p><span><span>但是，要在仍然使用列表理解的情況下達到與原始問題相同的結果（但是，絕對不要使用一行代碼），將確保新列表在構建後沒有重疊，使用</span></span><code class="highlighter-rouge">for</code><span><span>列表上</span><span>的傳統</span><span>循環：</span></span></p>
+<div class="gist" id="gist16704299">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-list-overlap-comprehensions-for-py">
+<div class="Box-body p-0 blob-wrapper data type-python" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-list-overlap-comprehensions-for-py-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC1"><span class="pl-k"><span></span></span><span><span class="pl-s1"><span>隨機</span></span><span class="pl-k"><span>導入</span></span></span><span class="pl-s1"><span></span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-list-overlap-comprehensions-for-py-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC2"><span class="pl-s1"><span><span>a<span> </span></span></span></span><span class="pl-c1"><span><span>=</span></span></span><span> </span><span class="pl-s1"><span><span>隨機的</span></span></span><span><span>。</span></span><span class="pl-en"><span><span>樣品</span></span></span><span><span>（</span></span><span class="pl-en"><span><span>範圍</span></span></span><span><span>（</span></span><span class="pl-c1"><span><span>1</span></span></span><span><span>，</span></span><span class="pl-c1"><span><span>30</span></span></span><span><span>），</span></span><span class="pl-c1"><span><span>12</span></span></span><span><span>）</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-list-overlap-comprehensions-for-py-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC3"><span class="pl-s1"><span><span>b<span> </span></span></span></span><span class="pl-c1"><span><span>=</span></span></span><span> </span><span class="pl-s1"><span><span>隨機</span></span></span><span><span>。</span></span><span class="pl-en"><span><span>樣品</span></span></span><span><span>（</span></span><span class="pl-en"><span><span>範圍</span></span></span><span><span>（</span></span><span class="pl-c1"><span><span>1</span></span></span><span><span>，</span></span><span class="pl-c1"><span><span>30</span></span></span><span><span>），</span></span><span class="pl-c1"><span><span>16</span></span></span><span><span>）</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-list-overlap-comprehensions-for-py-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC4"><span class="pl-s1"><span><span>result_overlap<span> </span></span></span></span><span class="pl-c1"><span><span>=</span></span></span><span><span><span> </span>[</span></span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-k"><span><span>為</span></span></span><span> </span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-en"><span><span>集</span></span></span><span><span>（</span></span><span class="pl-s1"><span><span>一</span></span></span><span><span>）</span></span><span class="pl-k"><span><span>如果</span></span></span><span> </span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-s1"><span><span>b</span></span></span><span><span><span> </span>]</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="5" id="file-list-overlap-comprehensions-for-py-L5"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC5"><span class="pl-s1"><span><span>結果</span></span></span><span> </span><span class="pl-c1"><span><span>=</span></span></span><span><span><span> </span>[]</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="6" id="file-list-overlap-comprehensions-for-py-L6"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC6"><span class="pl-k"><span><span>對於</span></span></span><span> </span><span class="pl-s1"><span><span>元件</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-s1"><span><span>result_overlap</span></span></span><span><span>：</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="7" id="file-list-overlap-comprehensions-for-py-L7"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC7"><span class="pl-k"><span><span>如果</span></span></span><span> </span><span class="pl-s1"><span><span>要素</span></span></span><span> </span><span class="pl-c1"><span><span>不能</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-s1"><span><span>結果</span></span></span><span><span>：</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="8" id="file-list-overlap-comprehensions-for-py-L8"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-for-py-LC8"><span class="pl-s1"><span><span>結果</span></span></span><span><span>。</span></span><span class="pl-en"><span><span>出現</span></span></span><span><span>（</span></span><span class="pl-s1"><span><span>元素</span></span></span><span><span>）</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/mprat/654b5f9286bcc2469077/raw/797c8e56bf0435c5130fa94ef666f119aef0ef07/list-overlap-comprehensions-for.py"><span><span>查看原始</span></span></a><a href="https://gist.github.com/mprat/654b5f9286bcc2469077#file-list-overlap-comprehensions-for-py"><span><span>list-overlap-comprehensions-for.py</span></span></a><span><span><span> </span>託管與❤通過</span></span><a href="https://github.com/"><span><span>GitHub上</span></span></a></div>
+</div>
+</div>
+<p><span><span>或者，要再次練習列表推導，可以使用兩個列表推導來完成：</span></span></p>
+<div class="gist" id="gist16704299">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-list-overlap-comprehensions-2-py">
+<div class="Box-body p-0 blob-wrapper data type-python" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-list-overlap-comprehensions-2-py-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC1"><span class="pl-k"><span></span></span><span><span class="pl-s1"><span>隨機</span></span><span class="pl-k"><span>導入</span></span></span><span class="pl-s1"><span></span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-list-overlap-comprehensions-2-py-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC2"><span class="pl-s1"><span><span>a<span> </span></span></span></span><span class="pl-c1"><span><span>=</span></span></span><span> </span><span class="pl-s1"><span><span>隨機的</span></span></span><span><span>。</span></span><span class="pl-en"><span><span>樣品</span></span></span><span><span>（</span></span><span class="pl-en"><span><span>範圍</span></span></span><span><span>（</span></span><span class="pl-c1"><span><span>1</span></span></span><span><span>，</span></span><span class="pl-c1"><span><span>30</span></span></span><span><span>），</span></span><span class="pl-c1"><span><span>12</span></span></span><span><span>）</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-list-overlap-comprehensions-2-py-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC3"><span class="pl-s1"><span><span>b<span> </span></span></span></span><span class="pl-c1"><span><span>=</span></span></span><span> </span><span class="pl-s1"><span><span>隨機</span></span></span><span><span>。</span></span><span class="pl-en"><span><span>樣品</span></span></span><span><span>（</span></span><span class="pl-en"><span><span>範圍</span></span></span><span><span>（</span></span><span class="pl-c1"><span><span>1</span></span></span><span><span>，</span></span><span class="pl-c1"><span><span>30</span></span></span><span><span>），</span></span><span class="pl-c1"><span><span>16</span></span></span><span><span>）</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-list-overlap-comprehensions-2-py-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC4"><span class="pl-s1"><span><span>result_overlaps<span> </span></span></span></span><span class="pl-c1"><span><span>=</span></span></span><span><span><span> </span>[</span></span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-k"><span><span>為</span></span></span><span> </span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-en"><span><span>集</span></span></span><span><span>（</span></span><span class="pl-s1"><span><span>一</span></span></span><span><span>）</span></span><span class="pl-k"><span><span>如果</span></span></span><span> </span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-s1"><span><span>b</span></span></span><span><span><span> </span>]</span></span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="5" id="file-list-overlap-comprehensions-2-py-L5"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-list-overlap-comprehensions-2-py-LC5"><span class="pl-s1"><span><span>導致</span></span></span><span> </span><span class="pl-c1"><span><span>=</span></span></span><span><span><span> </span>[</span></span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-k"><span><span>為</span></span></span><span> </span><span class="pl-s1"><span><span>我</span></span></span><span> </span><span class="pl-c1"><span><span>在</span></span></span><span> </span><span class="pl-s1"><span><span>result_overlaps</span></span></span><span> </span><span class="pl-k"><span><span>如果</span></span></span><span> </span><span class="pl-s1"><span><span>result_overlaps</span></span></span><span><span>。</span></span><span class="pl-en"><span><span>數</span></span></span><span><span>（</span></span><span class="pl-s1"><span><span>i</span></span></span><span><span>）</span></span><span class="pl-c1"><span><span>==<span> </span></span></span></span><span class="pl-c1"><span><span>1</span></span></span><span><span><span> </span>]</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h1>教學歷程</h1>
 <h2>W1</h2>
 1.照號碼編排座位</div>
 <div class="activitywrap compositeNest flash">2.網路的一些性質及介紹等(proxy,ipv6,ipv4等)2<br/>1.建立 Github, Gitlab, Heroku 與 Authorea 帳號</div>
