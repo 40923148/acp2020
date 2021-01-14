@@ -2927,6 +2927,252 @@ Sample solution
 </div>
 </div>
 </div>
+<h2>P13All solutions</h2>
+<div><i></i></div>
+<pre>Exercise 13</pre>
+<p>Write a program that asks the user how many Fibonacci numbers to generate and then generates them. Take this opportunity to think about how you can use functions. Make sure to ask the user to enter the number of numbers in the sequence to generate.(<em>Hint: The Fibonacci seqence is a sequence of numbers where the next number in the sequence is the sum of the previous two numbers in the sequence. The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …</em>)</p>
+<pre>Sample solution</pre>
+<p>There are so many ways that you can use functions to generate Fibonacci numbers. Here is one user-submitted solution:</p>
+<div class="gist" id="gist13341365">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-gistfile1-txt">
+<div class="Box-body p-0 blob-wrapper data type-text" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-gistfile1-txt-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC1">def gen_fib():</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-gistfile1-txt-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC2">count = int(input("How many fibonacci numbers would you like to generate? "))</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-gistfile1-txt-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC3">i = 1</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-gistfile1-txt-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC4">if count == 0:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="5" id="file-gistfile1-txt-L5"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC5">fib = []</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="6" id="file-gistfile1-txt-L6"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC6">elif count == 1:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="7" id="file-gistfile1-txt-L7"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC7">fib = [1]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="8" id="file-gistfile1-txt-L8"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC8">elif count == 2:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="9" id="file-gistfile1-txt-L9"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC9">fib = [1,1]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="10" id="file-gistfile1-txt-L10"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC10">elif count &gt; 2:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="11" id="file-gistfile1-txt-L11"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC11">fib = [1,1]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="12" id="file-gistfile1-txt-L12"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC12">while i &lt; (count - 1):</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="13" id="file-gistfile1-txt-L13"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC13">fib.append(fib[i] + fib[i-1])</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="14" id="file-gistfile1-txt-L14"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC14">i += 1</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="15" id="file-gistfile1-txt-L15"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC15"></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="16" id="file-gistfile1-txt-L16"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC16">return fib</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="17" id="file-gistfile1-txt-L17"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC17"></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="18" id="file-gistfile1-txt-L18"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-gistfile1-txt-LC18"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/anonymous/d470f920048b0d879cb5/raw/2620b135fa1b54474f5124a275324917b1ad4619/gistfile1.txt">view raw</a><a href="https://gist.github.com/anonymous/d470f920048b0d879cb5#file-gistfile1-txt">gistfile1.txt</a><span> </span>hosted with ❤ by<span> </span><a href="https://github.com/">GitHub</a></div>
+</div>
+</div>
+<p>And another:</p>
+<div class="gist" id="gist28692297">
+<div class="gist-file">
+<div class="gist-data">
+<div class="js-gist-file-update-container js-task-list-container file-box">
+<div class="file my-2" id="file-practice13-py">
+<div class="Box-body p-0 blob-wrapper data type-python" itemprop="text">
+<table class="highlight tab-size js-file-line-container" data-paste-markdown-skip="" data-tab-size="8">
+<tbody>
+<tr>
+<td class="blob-num js-line-number" data-line-number="1" id="file-practice13-py-L1"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC1"><span class="pl-k">def</span><span> </span><span class="pl-en">fibonacci</span>():</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="2" id="file-practice13-py-L2"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC2"><span class="pl-s1">num</span><span> </span><span class="pl-c1">=</span><span> </span><span class="pl-en">int</span>(<span class="pl-en">input</span>(<span class="pl-s">"How many numbers that generates?:"</span>))</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="3" id="file-practice13-py-L3"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC3"><span class="pl-s1">i</span><span> </span><span class="pl-c1">=</span><span> </span><span class="pl-c1">1</span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="4" id="file-practice13-py-L4"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC4"><span class="pl-k">if</span><span> </span><span class="pl-s1">num</span><span> </span><span class="pl-c1">==</span><span> </span><span class="pl-c1">0</span>:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="5" id="file-practice13-py-L5"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC5"><span class="pl-s1">fib</span><span> </span><span class="pl-c1">=</span><span> </span>[]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="6" id="file-practice13-py-L6"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC6"><span class="pl-k">elif</span><span> </span><span class="pl-s1">num</span><span> </span><span class="pl-c1">==</span><span> </span><span class="pl-c1">1</span>:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="7" id="file-practice13-py-L7"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC7"><span class="pl-s1">fib</span><span> </span><span class="pl-c1">=</span><span> </span>[<span class="pl-c1">1</span>]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="8" id="file-practice13-py-L8"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC8"><span class="pl-k">elif</span><span> </span><span class="pl-s1">num</span><span> </span><span class="pl-c1">==</span><span> </span><span class="pl-c1">2</span>:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="9" id="file-practice13-py-L9"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC9"><span class="pl-s1">fib</span><span> </span><span class="pl-c1">=</span><span> </span>[<span class="pl-c1">1</span>,<span class="pl-c1">1</span>]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="10" id="file-practice13-py-L10"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC10"><span class="pl-k">elif</span><span> </span><span class="pl-s1">num</span><span> </span><span class="pl-c1">&gt;</span><span> </span><span class="pl-c1">2</span>:</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="11" id="file-practice13-py-L11"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC11"><span class="pl-s1">fib</span><span> </span><span class="pl-c1">=</span><span> </span>[<span class="pl-c1">1</span>,<span class="pl-c1">1</span>]</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="12" id="file-practice13-py-L12"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC12"><span class="pl-k">while</span><span> </span><span class="pl-s1">i</span><span> </span><span class="pl-c1">&lt;</span><span> </span>(<span class="pl-s1">num</span><span> </span><span class="pl-c1">-</span><span> </span><span class="pl-c1">1</span>):</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="13" id="file-practice13-py-L13"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC13"><span class="pl-s1">fib</span>.<span class="pl-en">append</span>(<span class="pl-s1">fib</span>[<span class="pl-s1">i</span>]<span> </span><span class="pl-c1">+</span><span> </span><span class="pl-s1">fib</span>[<span class="pl-s1">i</span><span class="pl-c1">-</span><span class="pl-c1">1</span>])</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="14" id="file-practice13-py-L14"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC14"><span class="pl-s1">i</span><span> </span><span class="pl-c1">+=</span><span> </span><span class="pl-c1">1</span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="15" id="file-practice13-py-L15"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC15"><span class="pl-k">return</span><span> </span><span class="pl-s1">fib</span></td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="16" id="file-practice13-py-L16"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC16"><span class="pl-en">print</span>(<span class="pl-en">fibonacci</span>())</td>
+</tr>
+<tr>
+<td class="blob-num js-line-number" data-line-number="17" id="file-practice13-py-L17"></td>
+<td class="blob-code blob-code-inner js-file-line" id="file-practice13-py-LC17"><span class="pl-en">input</span>()</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="gist-meta"><a href="https://gist.github.com/avillareal98/3b29bb72e35d01bd5bf4/raw/1c1df6636cea6c0a3b9c64dc6e065f97e637a46c/practice13.py">view raw</a><a href="https://gist.github.com/avillareal98/3b29bb72e35d01bd5bf4#file-practice13-py">practice13.py</a><span> </span>hosted with ❤ by<span> </span><a href="https://github.com/">GitHub</a></div>
+</div>
+</div>
+<p>This solution is using what is called the “iterative” method of computing Fibonacci numbers. This means you use some kind of loop to keep adding numbers together to get the next number.</p>
+<p>An alternative way of computing Fibonacci numbers is to use<span> </span><em>recursion</em>, or calling the same function over and over in a special way, to compute the Fibonacci numbers. We will talk about this in a future exercise.</p>
+<div id="share">
+<pre>Share the fun!</pre>
+<pre class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr" id="tw-target-text"><span lang="zh-TW">練習13
+編寫一個程序，詢問用戶要生成多少斐波那契數，然後生成它們。藉此機會考慮如何使用功能。確保要求用戶輸入要生成的序列中的數字。（提示：斐波那契序列是一個數字序列，其中序列中的下一個數字是序列中前兩個數字的和。該序列看起來像這樣：1、1、2、3、5、8、13…）
+
+<strong>樣品溶液</strong>
+您可以通過多種方式使用函數來生成斐波那契數。這是用戶提交的一種解決方案：
+
+def gen_fib（）：
+    count = int（input（“您要生成多少斐波那契數字？”）
+    我= 1
+    如果count == 0：
+        fib = []
+    小數計數== 1：
+        fib = [1]
+    elif count == 2：
+        fib = [1,1]
+    小數&gt; 2：
+        fib = [1,1]
+        而我&lt;（計數-1）：
+            fib.append（fib [i] + fib [i-1]）
+            我+ = 1
+
+    退貨
+        
+    
+查看GitHub託管於❤的rawgistfile1.txt
+還有一個：
+
+def fibonacci（）：
+    num = int（input（“生成多少個數字？：”））
+    我= 1
+    如果num == 0：
+        fib = []
+    elif num == 1：
+        fib = [1]
+    elif num == 2：
+        fib = [1,1]
+    小數&gt; 2：
+        fib = [1,1]
+        而我&lt;（數字-1）：
+            fib.append（fib [i] + fib [i-1]）
+            我+ = 1
+    退貨
+打印（fibonacci（））
+輸入（）
+查看GitHub託管的❤的rawpractice13.py
+該解決方案使用了所謂的計算斐波納契數的“迭代”方法。這意味著您使用某種循環來將數字加在一起以獲得下一個數字。
+
+計算斐波那契數的另一種方法是使用遞歸，或以一種特殊方式一遍又一遍地調用相同的函數來計算斐波那契數。我們將在以後的練習中討論這一點。
+
+分享樂趣！</span></pre>
+</div>
+<p><i></i></p>
+<pre>Exercise 13 (and Solution)</pre>
+<p>Write a program that asks the user how many Fibonnaci numbers to generate and then generates them. Take this opportunity to think about how you can use functions. Make sure to ask the user to enter the number of numbers in the sequence to generate.(<em>Hint: The Fibonnaci seqence is a sequence of numbers where the next number in the sequence is the sum of the previous two numbers in the sequence. The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …</em>)</p>
+<pre>Discussion</pre>
+<p>Practice functions!</p>
+<pre>Happy coding!<br/><br/><span lang="zh-TW">練習13（和解決方案）</span></pre>
+<div class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr"><span lang="zh-TW">編寫一個程序，詢問用戶要生成多少斐波那契數字，然後生成它們。藉此機會考慮如何使用功能。確保要求用戶輸入要生成的序列中的數字。（提示：Fibonnaci序列是一個數字序列，其中序列中的下一個數字是序列中前兩個數字的和。該序列看起來像這樣：1、1、2、3、5、8、13…）</span></div>
+<pre>討論區</pre>
+<div class="tw-data-text tw-text-large XcVN5d tw-ta" data-placeholder="翻譯" dir="ltr"><span lang="zh-TW">練習功能！</span></div>
+<pre>祝您編碼愉快！</pre>
 <h1>教學歷程</h1>
 <h2>W1</h2>
 1.照號碼編排座位</div>
